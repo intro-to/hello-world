@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daycare Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Babies Registration Form</h1>
+    <div class="container" action=" /registerbaby" method="POST">
+      <form id="babiesForm">
+        <div class="form-group">
+          <label for="name">Babies Name:</label>
+          <input type="text" id="name" placeholder="Babies Name" name="name" />
+        </div>
+        <div class="form-group">
+          <label for="age">Babies Age:</label>
+          <input type="number" id="age" placeholder="Babies Age" name="age" />
+        </div>
+        <div class="form-group">
+          <label for="location">Babies Location:</label>
+          <input
+            type="text"
+            id="location"
+            placeholder="Babies Location"
+            name="Location"
+          />
+        </div>
+        <div class="form-group">
+          <label for="dob">Babies Date of Birth:</label>
+          <input
+            type="date"
+            id="dob"
+            placeholder="Babies Date of Birth"
+            name="dob"
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">Babies Gender:</label>
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">name of person brought the baby:</label>
+          <input
+            type="text"
+            id="nextOfKin"
+            placeholder="name of person brought the baby"
+            name="nextOfKin"
+          />
+        </div>
+        <div class="form-group">
+          <label for="time of arrival">time of arrival:</label>
+          <input
+            type="text"
+            id="time"
+            placeholder="Time fo Arrival"
+            name="time"
+          />
+        </div>
+        <div class="form-group">
+          <label for="parentsName">parents names:</label>
+          <input
+            type="text"
+            id="recommendersName"
+            placeholder="Sitter Recommender's Name"
+            name="recommendersName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fees in Ugx">fee in Ugx:</label>
+          <input type="text" id="fees" placeholder="fees in Ugx" name="fees" />
+        </div>
+        <div class="form-group">
+          <label for="period of stay">period of stay:</label>
+          <input
+            type="text"
+            id="period of stay"
+            placeholder="Period of Stay"
+            name="period of Stay"
+          />
+        </div>
+        <div class="form-group">
+          <label for="babiesNumber">Baby's Number:</label>
+          <input
+            type="text"
+            id="babiesNumber"
+            placeholder="Babies Number"
+            name="babiesNumber"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name of the person taking the baby"
+            >name of the person taking the baby:</label
+          >
+          <input
+            type="text"
+            id="name"
+            placeholder="Name of The Person taking the Baby"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="time out">time out:</label>
+          <input type="number" id="Time" placeholder="Time Out" name="Time" />
+        </div>
+        <button type="submit">Add Baby</button>
+      </form>
+    </div>
+
+    <div id="babyList"></div>
+
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script> -->
+  </body>
+</html>

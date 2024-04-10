@@ -1,0 +1,52 @@
+doctype html
+// index.html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Daycare Management System
+  link(rel='stylesheet' href='style.css')
+h1 Sitters Registration Form
+.container
+  form#sitterForm
+    .form-group
+      label(for='name') Sitter Name:
+      input#name(type='text' placeholder='Sitter Name' required='')
+    .form-group
+      label(for='age') Sitter Age:
+      input#age(type='number' placeholder='Sitter Age' required='')
+    .form-group
+      label(for='location') Sitter Location:
+      input#location(type='text' placeholder='Sitter Location' required='')
+    .form-group
+      label(for='dob') Sitter Date of Birth:
+      input#dob(type='date' placeholder='Sitter Date of Birth' required='')
+    .form-group
+      label(for='gender') Sitter Gender:
+      select#gender(required='')
+        option(value='male') Male
+        option(value='female') Female
+    .form-group
+      label(for='nextOfKin') Sitter Next of Kin:
+      input#nextOfKin(type='text' placeholder='Sitter Next of Kin' required='')
+    .form-group
+      label(for='nin') Sitter NIN:
+      input#nin(type='text' placeholder='Sitter NIN' required='')
+    .form-group
+      label(for='recommendersName') Sitter Recommender&apos;s Name:
+      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" required='')
+    .form-group
+      label(for='religion') Sitter Religion:
+      input#religion(type='text' placeholder='Sitter Religion' required='')
+    .form-group
+      label(for='educationLevel') Sitter Level of Education:
+      input#educationLevel(type='text' placeholder='Sitter Level of Education' required='')
+    .form-group
+      label(for='sitterNumber') Sitter Number:
+      input#sitterNumber(type='text' placeholder='Sitter Number' required='')
+    .form-group
+      label(for='contacts') Sitter Contacts:
+      input#contacts(type='text' placeholder='Sitter Contacts' required='')
+    button(type='submit') Add Sitter
+#sitterList
+script(src='https://unpkg.com/axios/dist/axios.min.js')
+script(src='script.js')

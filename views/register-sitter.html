@@ -1,0 +1,115 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daycare Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Sitters Registration Form</h1>
+    <div class="container">
+      <form id="sitterForm">
+        <div class="form-group">
+          <label for="name">Sitter Name:</label>
+          <input type="text" id="name" placeholder="Sitter Name" required />
+        </div>
+        <div class="form-group">
+          <label for="age">Sitter Age:</label>
+          <input type="number" id="age" placeholder="Sitter Age" required />
+        </div>
+        <div class="form-group">
+          <label for="location">Sitter Location:</label>
+          <input
+            type="text"
+            id="location"
+            placeholder="Sitter Location"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="dob">Sitter Date of Birth:</label>
+          <input
+            type="date"
+            id="dob"
+            placeholder="Sitter Date of Birth"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">Sitter Gender:</label>
+          <select id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nextOfKin">Sitter Next of Kin:</label>
+          <input
+            type="text"
+            id="nextOfKin"
+            placeholder="Sitter Next of Kin"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="nin">Sitter NIN:</label>
+          <input type="text" id="nin" placeholder="Sitter NIN" required />
+        </div>
+        <div class="form-group">
+          <label for="recommendersName">Sitter Recommender's Name:</label>
+          <input
+            type="text"
+            id="recommendersName"
+            placeholder="Sitter Recommender's Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="religion">Sitter Religion:</label>
+          <input
+            type="text"
+            id="religion"
+            placeholder="Sitter Religion"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="educationLevel">Sitter Level of Education:</label>
+          <input
+            type="text"
+            id="educationLevel"
+            placeholder="Sitter Level of Education"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="sitterNumber">Sitter Number:</label>
+          <input
+            type="text"
+            id="sitterNumber"
+            placeholder="Sitter Number"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="contacts">Sitter Contacts:</label>
+          <input
+            type="text"
+            id="contacts"
+            placeholder="Sitter Contacts"
+            required
+          />
+        </div>
+        <button type="submit">Add Sitter</button>
+      </form>
+    </div>
+
+    <div id="sitterList"></div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
