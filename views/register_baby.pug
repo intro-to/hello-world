@@ -1,13 +1,12 @@
 doctype html
-| PASTE YOUR HTML CODE HERE
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Daycare Management System
-  link(rel='stylesheet' href='style.css')
+  link(rel='stylesheet' href='/css/style.css')
 h1 Babies Registration Form
-.container(action=' /registerbaby' method='POST')
-  form#babiesForm
+.container
+  form#babiesForm(action = "/registerbaby" method="POST")
     .form-group
       label(for='name') Babies Name:
       input#name(type='text' placeholder='Babies Name' name='name')
@@ -30,27 +29,27 @@ h1 Babies Registration Form
       input#nextOfKin(type='text' placeholder='name of person brought the baby' name='nextOfKin')
     .form-group
       label(for='time of arrival') time of arrival:
-      input#time(type='text' placeholder='Time fo Arrival' name='time')
+      input#time(type='text' placeholder='Time of Arrival' name='timeofArrival')
     .form-group
       label(for='parentsName') parents names:
-      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='recommendersName')
+      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='parentName')
     .form-group
       label(for='fees in Ugx') fee in Ugx:
       input#fees(type='text' placeholder='fees in Ugx' name='fees')
     .form-group
       label(for='period of stay') period of stay:
-      input(type='text' id='period of stay' placeholder='Period of Stay' name='period of Stay')
+      input(type='text' id='period of stay' placeholder='Period of Stay' name='periodofStay')
     .form-group
       label(for='babiesNumber') Baby&apos;s Number:
       input#babiesNumber(type='text' placeholder='Babies Number' name='babiesNumber')
     .form-group
       label(for='name of the person taking the baby') name of the person taking the baby:
-      input#name(type='text' placeholder='Name of The Person taking the Baby' name='name')
+      input#name(type='text' placeholder='Name of The Person taking the Baby' name='nameofpersontakingcare')
     .form-group
       label(for='time out') time out:
-      input#Time(type='number' placeholder='Time Out' name='Time')
+      input#Time(type='number' placeholder='Time Out' name='TimeOut')
     button(type='submit') Add Baby
 #babyList
-//
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="script.js"></script>
+  <script src="/js/script.js"></script>

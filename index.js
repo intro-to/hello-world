@@ -6,6 +6,9 @@ const path = require("path");//for pug
 
 require("dotenv").config();
 
+//import route
+const registrationRoutes = require("./routes/registrationRoutes");
+
 //instantiations
 const app = express();
 
@@ -37,6 +40,8 @@ app.get("/registerbaby", (req, res)=> {
   res.render("register_baby")
 } );
 
+//use imported routes
+app.use("/",registrationRoutes);
 
 // app.get("/", (req, res) => {
 //   res.send("Homepage! Hello world.");
