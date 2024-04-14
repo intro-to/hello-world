@@ -8,6 +8,9 @@ require("dotenv").config();
 
 //import route
 const registrationRoutes = require("./routes/registrationRoutes");
+const sitterRoutes = require("./routes/sitterRoutes");
+const parentRoutes = require("./routes/parentRoutes");
+
 
 //instantiations
 const app = express();
@@ -39,9 +42,16 @@ app.use(express.json());
 app.get("/registerbaby", (req, res)=> {
   res.render("register_baby")
 } );
+app.get("/registersitter", (req, res)=> {
+  res.render("register-sitter")
+} );
+app.get("/registerparent", (req, res)=> {
+  res.render("parent")
+} );
 
 //use imported routes
 app.use("/",registrationRoutes);
+app.use("/",sitterRoutes);
 
 // app.get("/", (req, res) => {
 //   res.send("Homepage! Hello world.");

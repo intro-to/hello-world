@@ -13,7 +13,7 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   }, 
-  dob:{
+  Dateofbirth:{
     type:Date,
     trim:true
   }, 
@@ -25,31 +25,27 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   },
-  timeofArrival:{
+  nin:{
     type:String,
     trim:true
   },  
-  parentName:{
+  recommendersName:{
     type:String,
     trim:true
   }, 
-  fees:{
-    type:Number,
+ religion:{
+    type:String,
     trim:true
   },
-  periodofStay:{
+  educationLevel:{
     type:String,
     trim:true
   },  
-  babiesNumber:{
+  sitterNumber:{
     type:String,
     unique:true
   },
-  nameofpersontakingcare:{
-    type:String,
-    trim:true
-  }, 
-  timeOut:{
+  contacts:{
     type:String,
     trim:true
   }
@@ -57,4 +53,4 @@ const registrationSchema = new mongoose.Schema( {
 });
 
 
-module.exports = mongoose.model("Registration",registrationSchema )
+module.exports = mongoose.model("Sitter",registrationSchema )

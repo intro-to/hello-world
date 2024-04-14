@@ -4,48 +4,48 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Daycare Management System
-  link(rel='stylesheet' href='style.css')
+  link(rel='stylesheet' href='/css/style.css')
 h1 Sitters Registration Form
 .container
-  form#sitterForm
+  form#sitterForm(action = "/registersitter" method="POST")
     .form-group
       label(for='name') Sitter Name:
-      input#name(type='text' placeholder='Sitter Name' required='')
+      input#name(type='text' placeholder='Sitter Name' name='name')
     .form-group
       label(for='age') Sitter Age:
-      input#age(type='number' placeholder='Sitter Age' required='')
+      input#age(type='number' placeholder='Sitter Age' name=' age')
     .form-group
       label(for='location') Sitter Location:
-      input#location(type='text' placeholder='Sitter Location' required='')
+      input#location(type='text' placeholder='Sitter Location' name=' location')
     .form-group
       label(for='dob') Sitter Date of Birth:
-      input#dob(type='date' placeholder='Sitter Date of Birth' required='')
+      input#dob(type='date' placeholder='Sitter Date of Birth' name='dot')
     .form-group
       label(for='gender') Sitter Gender:
-      select#gender(required='')
+      select#gender(name='gender')
         option(value='male') Male
         option(value='female') Female
     .form-group
       label(for='nextOfKin') Sitter Next of Kin:
-      input#nextOfKin(type='text' placeholder='Sitter Next of Kin' required='')
+      input#nextOfKin(type='text' placeholder='Sitter Next of Kin' name='nextOfkin')
     .form-group
       label(for='nin') Sitter NIN:
-      input#nin(type='text' placeholder='Sitter NIN' required='')
+      input#nin(type='text' placeholder='Sitter NIN' name='NIN')
     .form-group
       label(for='recommendersName') Sitter Recommender&apos;s Name:
-      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" required='')
+      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='recommendersName')
     .form-group
       label(for='religion') Sitter Religion:
-      input#religion(type='text' placeholder='Sitter Religion' required='')
+      input#religion(type='text' placeholder='Sitter Religion' name='religion')
     .form-group
       label(for='educationLevel') Sitter Level of Education:
-      input#educationLevel(type='text' placeholder='Sitter Level of Education' required='')
+      input#educationLevel(type='text' placeholder='Sitter Level of Education' name='educationLevel')
     .form-group
       label(for='sitterNumber') Sitter Number:
-      input#sitterNumber(type='text' placeholder='Sitter Number' required='')
+      input#sitterNumber(type='text' placeholder='Sitter Number' name='sitterNumber')
     .form-group
       label(for='contacts') Sitter Contacts:
-      input#contacts(type='text' placeholder='Sitter Contacts' required='')
+      input#contacts(type='text' placeholder='Sitter Contacts' name='contacts')
     button(type='submit') Add Sitter
 #sitterList
 script(src='https://unpkg.com/axios/dist/axios.min.js')
