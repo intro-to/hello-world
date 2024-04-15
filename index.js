@@ -5,6 +5,7 @@ const path = require("path");//for pug
 
 
 require("dotenv").config();
+const port = 3501;
 
 //import route
 const registrationRoutes = require("./routes/registrationRoutes");
@@ -111,4 +112,4 @@ app.get("*", (req, res) => {
 });
 
 // Always the last line
-app.listen(3501, () => console.log("listening on port 3501")); // new
+app.listen(port, () => console.log("listening on port ${port}")); // new

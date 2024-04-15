@@ -9,8 +9,8 @@ router.get("/registerparent", (req, res) => {
   });
   
   router.post("/registerparent", (req, res) => {
-    const baby = new registration(req.body)
-    baby.save();
+    const parent = new registration(req.body)
+    parent.save();
     console.log(parent)
     res.send("sucess")
     // res.redirect("/index")
