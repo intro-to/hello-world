@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="/public/css/admi.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Admin Registration</h2>
+      <form id="adminRegistrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" />
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" />
+
+        <label for="nin">NIN:</label>
+        <input type="text" id="nin" name="nin" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" />
+
+        <label for="role">Role:</label>
+        <select id="role" name="role">
+          <option value="admin">Admin</option>
+        </select>
+
+        <button type="button" onclick="registerAdmin()">Register</button>
+      </form>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    /* background-color: #333; */
+    color: #fffdfd;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color:#E090DF;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    padding: 0;
+}
+
+nav {
+    background-color:#D90077 ;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#activities {
+    margin-bottom: 20px;
+}
+
+.activity {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#activityForm input,
+#activityForm button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#activityForm button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#activityForm button:hover {
+    background-color: #555;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #8800c7;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}

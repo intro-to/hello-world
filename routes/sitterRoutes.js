@@ -16,5 +16,10 @@ router.get("/registersitter", (req, res) => {
     // res.redirect("/index")
 
 });
+
+router.get("/sitter", (req, res) =>{
+  res.render(sittermanagement)
+})
+
   
 module.exports = router;
