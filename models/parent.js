@@ -21,11 +21,11 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   },  
-  parentContacts:{
+  parentContact:{
     type:String,
     trim:true
   },
-  emergencyContacts:{
+  emergencyContact:{
     type:String,
     trim:true
   }

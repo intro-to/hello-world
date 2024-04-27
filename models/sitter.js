@@ -25,7 +25,7 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   },
-  nin:{
+  NIN:{
     type:String,
     trim:true
   },  

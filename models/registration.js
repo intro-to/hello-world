@@ -9,19 +9,19 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   } , 
-  location:{
+  Location:{
     type:String,
     trim:true
   }, 
   dob:{
-    type:Date,
+    type:Date,offset: now .getTimezoneOffset,
     trim:true
   }, 
   gender:{
     type:String,
     trim:true
   },   
-  nextOfkin:{
+  nextOfKin:{
     type:String,
     trim:true
   },
@@ -49,7 +49,7 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   }, 
-  timeOut:{
+  TimeOut:{
     type:String,
     trim:true
   }

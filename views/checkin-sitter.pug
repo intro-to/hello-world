@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width= , initial-scale=1.0")
+        title Document
+    body 
+form(id='clockInForm', action='/clockin', method='POST')
+  label(for='sitterName') Sitter Name:
+  input(type='text', id='sitterName', name='sitterName', value=sitter.name, readonly)
+
+  label(for='sitterAge') Sitter Age:
+  input(type='text', id='sitterAge', name='sitterAge', value=sitter.age, readonly)
+
+  label(for='clockInTime') Clock In Time:
+  input(type='datetime-local', id='clockInTime', name='clockInTime')
+
+  button(type='submit') Clock In

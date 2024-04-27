@@ -4,39 +4,52 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
   link(rel='stylesheet' href='/css/sitter.css')
-| html
-| head
-| title My Website
-| body
-| h1 Register sitter
-| table
-| thead
-| tr
-| th  Name
-| th  Age
-| th  Location
-| th  Dob
-| th  Gender
-| th  Next of kin
-| th  Nin
-| th  Reccomender
-| th  Religion
-| th  Level of Education
-| th  Number
-| th  Contact
-| tbody#sitter-list
-| if sitters. length
-| each sitter in sitters
-| tr
-| td  #{sitter.name}
-| td #{sitter.age }
-| td  #{sitter.location }
-| td  #{sitter.Dateofbirth}
-| td  #{sitter.gender}
-| td  #{sitter.nextOfkin}
-| td  #{sitter.nin}
-| td  #{sitter.reccomendersName}
-| td  #{sitter.religion}
-| td  #{sitter.educationLevel}
-| td  #{sitter.sitterNumber}
-| td  #{sitter.contact}
+
+h1 Registered sitter
+table
+  thead
+          tr
+            th Name
+            th Age
+            th Location
+            th Date of Birth
+            th Gender
+            th Next of Kin
+            th NIN
+            th Recommender
+            th Religion
+            th Level of Education
+            th Number
+            th Contacts
+            th Status
+            th Clockin
+            th Clockout
+            th Action
+           
+  tbody#sitter-list
+       if sitters.length 
+       each sitter in sitters 
+          tr
+            td   #{sitter.name} 
+            td  #{sitter.age }
+            td  #{sitter.location} 
+            td  #{sitter.Dateofbirth} 
+            td  #{sitter.gender} 
+            td  #{sitter.nextOfkin} 
+            td  #{sitter.NIN} 
+            td  #{sitter.reccomendersName} 
+            td  #{sitter.religion} 
+            td  #{sitter.educationLevel} 
+            td  #{sitter.sitterNumber} 
+            td  #{sitter.contacts} 
+            td  #{sitter.status} 
+            td 
+                button(onclick="clockin()") Clockin 
+            td
+                button(onclick="clockout()") Clockout 
+            td 
+                a(href="#") Update
+            td
+                 form(method="POST" action="/delete")
+                 input(type="hidden" name="id" value=sitter._id)
+                 button(type="submit") Delete

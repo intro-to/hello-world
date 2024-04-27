@@ -4,35 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Registration</title>
-    <link rel="stylesheet" href="/public/css/admi.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/admin.css" />
   </head>
   <body>
     <div class="container">
       <h2>Admin Registration</h2>
       <form id="adminRegistrationForm">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" />
+        <input type="text" id="name" name="name" required />
 
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age" />
+        <input type="number" id="age" name="age" required />
 
         <label for="location">Location:</label>
-        <input type="text" id="location" name="location" />
+        <input type="text" id="location" name="location" required />
 
         <label for="nin">NIN:</label>
-        <input type="text" id="nin" name="nin" />
+        <input type="text" id="nin" name="nin" required />
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
+        <input type="email" id="email" name="email" required />
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" />
-        
+        <input type="password" id="password" name="password" required />
+
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" />
+        <input type="tel" id="phone" name="phone" required />
 
         <label for="role">Role:</label>
-        <select id="role" name="role">
+        <select id="role" name="role" required>
           <option value="admin">Admin</option>
         </select>
 
@@ -40,7 +40,6 @@
       </form>
     </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="admin.js"></script>
+    <script src="/public/js/admin.js"></script>
   </body>
 </html>

@@ -10,8 +10,8 @@ router.get("/registeradmin", (req, res) => {
 
   router.post("/registeradmin", async (req, res) => {
     try{
-      const admin = new registration(req.body);
-      await admin.register(admin,req.body.password,(err)=>{
+      const admin = new Registration(req.body);
+      await Registration.register(admin,req.body.password,(err)=>{
         if(err){
             throw err
         }
@@ -19,7 +19,7 @@ router.get("/registeradmin", (req, res) => {
       });
     //   res.redirect("registeradmin")
       console.log(admin)
-      res.send("sucess")
+      res.redirect("/login")
     } catch (error){
       res.status(400).send("sorry something went wrong")
    console.log("error registering admin", error);

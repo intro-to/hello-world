@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="/css/sitter.css" />
+</head>
+<body>
+    <h1>Register sitter</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Next of Kin</th>
+                <th>NIN</th>
+                <th>Recommender</th>
+                <th>Religion</th>
+                <th>Level of Education</th>
+                <th>Number</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody id="sitter-list">
+            
+                    <tr>
+                        <td>%= sitter.name %</td>
+                        <td>%= sitter.age %></td>
+                        <td>%= sitter.location %></td>
+                        <td>%= sitter.Dateofbirth %></td>
+                        <td>%= sitter.gender %></td>
+                        <td>%= sitter.nextOfkin %></td>
+                        <td>sitter.nin %></td>
+                        <td>%= sitter.reccomendersName %></td>
+                        <td><%= sitter.religion %></td>
+                        <td><%= sitter.educationLevel %></td>
+                        <td><%= sitter.sitterNumber %></td>
+                        <td><%= sitter.contact %></td>
+                    </tr>
+               
+        </tbody>
+    </table>
+</body>
+</html>

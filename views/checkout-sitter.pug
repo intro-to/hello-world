@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+form(id='clockOutForm', action='/clockout', method='POST')
+  label(for='sitterName') Sitter Name:
+  input(type='text', id='sitterName', name='sitterName', value=sitter.name, readonly)
+
+  label(for='sitterAge') Sitter Age:
+  input(type='text', id='sitterAge', name='sitterAge', value=sitter.age, readonly)
+
+  label(for='clockOutTime') Clock Out Time:
+  input(type='datetime-local', id='clockOutTime', name='clockOutTime')
+
+  label(for='notes') Notes:
+  textarea(id='notes', name='notes', rows='4', cols='50')
+
+  button(type='submit') Clock Out

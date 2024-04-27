@@ -34,6 +34,6 @@ const registrationSchema = new mongoose.Schema( {
 });
 
 registrationSchema.plugin(passportLocalMongoose ,{
-    usernameFeild:"email"
+    usernameField:"email"
 })
 module.exports = mongoose.model("Register",registrationSchema )

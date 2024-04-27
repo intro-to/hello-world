@@ -3,29 +3,26 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Admin Registration
-  link(rel='stylesheet' href='/css/admin.css')
+  link(rel='stylesheet' type='text/css' href='/css/admin.css')
 .container
   h2 Admin Registration
-  form#adminRegistrationForm(action = "/registeradmin" method="POST")
-   label(for='name') Name:
-   input#name(type='text' name='name')
-   label(for='age') Age:
-   input#age(type='number' name='age')
-   label(for='location') Location:
-   input#location(type='text' name='location')
-   label(for='nin') NIN:
-   input#nin(type='text' name='nin')
-   label(for='email') Email:
-   input#email(type='email' name='email')
-   label(for='password') Password:
-   input#password(type='password' name='password')
-   label(for='phone') Phone Number:
-   input#phone(type='tel' name='phone')
-   label(for='role') Role:
-   select#role(name='role')
+  form#adminRegistrationForm(action="/registeradmin" method="POST")
+    label(for='name') Name:
+    input#name(type='text' name='name' required='')
+    label(for='age') Age:
+    input#age(type='number' name='age' required='')
+    label(for='location') Location:
+    input#location(type='text' name='location' required='')
+    label(for='nin') NIN:
+    input#nin(type='text' name='nin' required='')
+    label(for='email') Email:
+    input#email(type='email' name='email' required='')
+    label(for='password') Password:
+    input#password(type='password' name='password' required='')
+    label(for='phone') Phone Number:
+    input#phone(type='tel' name='phone' required='')
+    label(for='role') Role:
+    select#role(name='role' required='')
       option(value='admin') Admin
-  button(type='submit') Register admin
-
-  //-  button(type='button' onclick='registerAdmin()') Register
-script(src="https://unpkg.com/axios/dist/axios.min.js")
-script(src="/js/admin.js")
+    button(type='submit' onclick='registerAdmin()') Register
+script(src='/js/admin.js')

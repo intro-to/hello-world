@@ -4,20 +4,17 @@ const router = express.Router();
 //import model
 const registration = require("../models/registration");
 
-router.get("/registerbaby", connectEnsureLogin.ensureLogedIn(), (req, res) => {
+router.get("/registerbaby",  (req, res) => {
   res.render("register_baby");
 });
 
-router.post(
-  "/registerbaby",
-  connectEnsureLogin.ensureLogedIn(),
-  async (req, res) => {
+router.post( "/registerbaby", async (req, res) => {
     try {
       const baby = new registration(req.body);
       await baby.save();
       // res.redirect("registerbaby")
       console.log(baby);
-      res.send("sucess");
+      res.redirect("/babiesList");
     } catch (error) {
       res.status(400).send("sorry something went wrong");
       console.log("error registering baby", error);
@@ -27,11 +24,28 @@ router.post(
     // console.log(baby)
     // res.send("sucess")
     // res.redirect("/index")
-  }
-);
+  });
 
-router.get("/baby", (req, res) => {
-  res.render(babymanagement);
+//fetching babies from the db
+router.get("/babiesList", async (req, res) =>{
+  try {
+    let babies = await registration.find()
+    res.render("babiesmanagement" , {babies:babies})
+  } catch (error) {
+
+  }
+  
+});
+
+router.post("/delete", async (req, res) => {
+  try {
+    console.log (req.body.id)
+    await registration.deleteOne({_id:req.body.id});
+    res.redirect("back")
+  } catch (error) {
+    res.status(400).send("unable to delete babies from the db")
+    console.log("Error deleting babies", error);
+  }
 });
 
 //updating a baby in the database
@@ -48,7 +62,7 @@ router.get("/babiesUpdate/:id", async (req, res) => {
 router.post("/babiesUpdate", async (req, res) => {
   try {
     await babymagrment.findOneAndUpdate({ _id: req.query.id }, req.body);
-    res.redirect("/babies");
+    res.redirect("/babiesList");
   } catch (error) {
     res.status(404).send("unable to update baby in the db!");
   }
