@@ -71,7 +71,9 @@ app.get("/registerparent", (req, res) => {
 app.get("/registeradmin", (req, res) => {
   res.render("register-admin");
 });
-
+app.get("/babiesUpdate", (req, res) => {
+  res.render("babiesUpdate");
+});
 
 //use imported routes
 app.use("/", registrationRoutes);
