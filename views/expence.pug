@@ -1,0 +1,136 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Expense Tracker
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    }
+    .container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #D90077;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    }
+    h2 {
+    margin-top: 0;
+    }
+    .input-group {
+    margin-bottom: 10px;
+    }
+    .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    }
+    .input-group input[type="text"],
+    .input-group input[type="number"],
+    .input-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    }
+    .btn {
+    background-color: #8800C7;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    }
+    .btn:hover {
+    background-color: #FBBEDE;
+    }
+    .expense-list {
+    margin-top: 20px;
+    }
+    .expense-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    }
+    .expense-item:last-child {
+    border-bottom: none;
+    }
+    .expense-item span {
+    margin-right: 10px;
+    }
+    .total-expenses {
+    margin-top: 20px;
+    font-weight: bold;
+    }
+.container
+  h2 Expense Tracker
+  .input-group
+    label(for='amount') Amount:
+    input#amount(type='number')
+  .input-group
+    label(for='description') Description:
+    input#description(type='text')
+  .input-group
+    label(for='category') Category:
+    select#category
+      option(value='Food') Food
+      option(value='Fruits') Fruits
+      option(value='Milk') Milk
+      option(value='Bread') Bread
+      option(value='Others') Others
+  button.btn(onclick='addExpense()') Add Expense
+  #expenseList.expense-list
+  #totalExpenses.total-expenses
+script.
+  document.addEventListener("DOMContentLoaded", () => {
+  loadExpenses();
+  calculateTotalExpenses();
+  });
+  function addExpense() {
+  const amountInput = document.getElementById("amount");
+  const descriptionInput = document.getElementById("description");
+  const categoryInput = document.getElementById("category");
+  const amount = parseFloat(amountInput.value);
+  const description = descriptionInput.value.trim();
+  const category = categoryInput.value;
+  if (!isNaN(amount) && description !== "") {
+  const expense = {
+  id: Date.now(),
+  amount,
+  description,
+  category,
+  };
+  let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+  expenses.push(expense);
+  localStorage.setItem("expenses", JSON.stringify(expenses));
+  loadExpenses();
+  calculateTotalExpenses();
+  amountInput.value = "";
+  descriptionInput.value = "";
+  categoryInput.value = "Food";
+  }
+  }
+  function loadExpenses() {
+  const expenseList = document.getElementById("expenseList");
+  expenseList.innerHTML = "";
+  const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+  expenses.forEach((expense) => {
+  const item = document.createElement("div");
+  item.classList.add("expense-item");
+  item.innerHTML = `<span>${expense.category}</span><span>${expense.description}</span><span>$${expense.amount}</span>`;
+  expenseList.appendChild(item);
+  });
+  }
+  function calculateTotalExpenses() {
+  const totalExpensesElem = document.getElementById("totalExpenses");
+  const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+  const totalExpenses = expenses.reduce(
+  (acc, expense) => acc + expense.amount,
+  0
+  );
+  totalExpensesElem.textContent = `Total Expenses: $${totalExpenses.toFixed(
+  2
+  )}`;
+  }

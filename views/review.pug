@@ -1,0 +1,106 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Review App
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    }
+    .quiz-container {
+    background-color: #A44CD3;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    }
+    .question {
+    margin-bottom: 20px;
+    }
+    .options label {
+    display: block;
+    margin-bottom: 10px;
+    }
+    .btn {
+    background-color: #D90077;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    }
+    .btn:hover {
+    background-color: #FBBEDE;
+    }
+.quiz-container
+  h2 Review
+  #question.question
+  #options.options
+  button#nextBtn.btn(onclick='nextQuestion()') Next
+  #result
+script.
+  const quizQuestions = [
+  {
+  question: "How is the Daycare centre?",
+  options: ["Good", "Very-good", "Bad", "Very poor"],
+  answer: "",
+  },
+  {
+  question: "How do you find the services at Daystar Day-care centre",
+  options: ["Good", "Very-good", "Bad", "Very poor"],
+  answer: "",
+  },
+  {
+  question: "Rate the sitters of the babies,",
+  options: ["Good", "Very-good", "Bad", "Very poor"],
+  answer: "",
+  },
+  ];
+  let currentQuestion = 0;
+  let score = 0;
+  const questionElem = document.getElementById("question");
+  const optionsElem = document.getElementById("options");
+  const resultElem = document.getElementById("result");
+  const nextBtn = document.getElementById("nextBtn");
+  function loadQuestion() {
+  const currentQuiz = quizQuestions[currentQuestion];
+  questionElem.textContent = currentQuiz.question;
+  optionsElem.innerHTML = "";
+  currentQuiz.options.forEach((option, index) => {
+  const optionElem = document.createElement("label");
+  optionElem.innerHTML = `<input type="radio" name="answer" value="${option}">${option}`;
+  optionsElem.appendChild(optionElem);
+  });
+  }
+  function nextQuestion() {
+  const selectedOption = document.querySelector(
+  'input[name="answer"]:checked'
+  );
+  if (!selectedOption) {
+  alert("Please select an option");
+  return;
+  }
+  if (selectedOption.value === quizQuestions[currentQuestion].answer) {
+  score++;
+  }
+  currentQuestion++;
+  if (currentQuestion < quizQuestions.length) {
+  loadQuestion();
+  } else {
+  showResult();
+  }
+  }
+  function showResult() {
+  questionElem.textContent = "";
+  optionsElem.innerHTML = "";
+  nextBtn.style.display = "none";
+  resultElem.textContent = `Your Score: ${score} out of ${quizQuestions.length}`;
+  }
+  loadQuestion();

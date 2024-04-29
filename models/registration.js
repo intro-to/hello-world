@@ -14,7 +14,7 @@ const registrationSchema = new mongoose.Schema( {
     trim:true
   }, 
   dob:{
-    type:Date,offset: now .getTimezoneOffset,
+    type:Date,
     trim:true
   }, 
   gender:{

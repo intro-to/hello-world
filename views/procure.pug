@@ -1,0 +1,60 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Procurement corner
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    }
+    .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #D90077;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    }
+    h2 {
+    margin-top: 0;
+    }
+    .menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    }
+    .menu a {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #8800C7;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    }
+    .menu a:hover {
+    background-color: #A44CD3;
+    }
+.container
+  h1 WELCOME TO THE PROCUREMENT CORNER
+  h2 Daystar Day-care
+  .menu
+    a(href='expence.html' onclick='showexpensepage()') expense
+    a(href='purchase.html' onclick='showpurchasepage()') dastar dolls
+  #content
+    // Content will be dynamically loaded here
+script.
+  function showExpensePage() {
+  document.getElementById(
+  "content"
+  ).innerHTML = `<h3>Expense Page</h3><p>This is the dashboard page. You can display various metrics and information here.</p>`;
+  }
+  function showPurchasePage() {
+  document.getElementById(
+  "content"
+  ).innerHTML = `<h3>Purchase Page</h3><p>This is the statistics page. You can display statistical data and analysis here.</p>`;
+  }
+  // Show dashboard page by default
+  showDashboardPage();

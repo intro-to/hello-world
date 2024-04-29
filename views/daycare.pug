@@ -14,15 +14,15 @@ header
         #navbarSupportedContent.collapse.navbar-collapse
           ul.navbar-nav.me-auto.mb-2.mb-lg-0
             li.nav-item
-              a.nav-link.active(aria-current='page' href='about us.html') About -us
+              a.nav-link.active(aria-current='page' href='about-us.pug') About -us
             li.nav-item
-              a.nav-link(href='quiz.html') Review
+              a.nav-link(href='review.pug') Review
             li.nav-item.dropdown
               a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
                 | Welcome
               ul.dropdown-menu(aria-labelledby='navbarDropdown')
                 li
-                  a.dropdown-item(href='sign.html') Adimin
+                  a.dropdown-item(href='register-admin.pug') Adimin
                 li
                   a.dropdown-item(href='sittersign.html') Sitter
                 li
@@ -39,18 +39,11 @@ header
               >Disabled</a
               >
               </li>
-          form.d-flex
+          form.d-flex (action = "/daycare" method="POST)
             input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
             button.btn.btn-outline-success(type='submit')
               | Search
-    //
-      <nav>
-      <ul>
-      <li><a href="about us.html">about us</a></li>
-      <li><a href="quiz.html">questions</a></li>
-      <li><a href="welcome.html">Welcome</a></li>
-      </ul>
-      </nav>
+   
   .container
     main
       h1 Daystar Day-care management system

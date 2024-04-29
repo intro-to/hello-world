@@ -1,0 +1,78 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Welcome Page
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .container {
+    background-color:#FBBEDE;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+    margin-bottom: 20px;
+    }
+    .icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#D90077;
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+    cursor: pointer;
+    }
+    .icon img {
+    max-width: 80px;
+    max-height: 80px;
+    }
+    .icon p {
+    margin-top: 10px;
+    font-size: 16px;
+    }
+.container
+  h1 Welcome!
+  .icons
+    #sitterIcon.icon
+      img(src='sitter_icon.png' alt='Sitter')
+      p Sitter
+    #adminIcon.icon
+      img(src='admin_icon.png' alt='Admin')
+      p Admin
+    #parentIcon.icon
+      img(src='parent_icon.png' alt='Parent')
+      p Parent
+script.
+  // Add click event listeners to each icon
+  document
+  .getElementById("sitterIcon")
+  .addEventListener("click", function () {
+  window.location.href = "sittersign.html"; // Redirect to sitter sign-in page
+  });
+  document
+  .getElementById("adminIcon")
+  .addEventListener("click", function () {
+  window.location.href = "sign.html"; // Redirect to admin sign-in page
+  });
+  document
+  .getElementById("parentIcon")
+  .addEventListener("click", function () {
+  window.location.href = "parentsign.html"; // Redirect to parent sign-in page
+  });

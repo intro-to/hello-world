@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daystar Dolls</title>
+    <link rel="stylesheet" href="preci.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="product">
+        <img src="./images/doll.jpeg" alt="doll" />
+        <div class="product-title">doll 1</div>
+        <div class="product-price">$19.99</div>
+        <button class="buy-button" data-product-id="1">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 2.jpeg" alt="doll 2" />
+        <div class="product-title">doll 2</div>
+        <div class="product-price">$29.99</div>
+        <button class="buy-button" data-product-id="2">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 3.jpeg" alt="doll 3" />
+        <div class="product-title">doll 3</div>
+        <div class="product-price">$39.99</div>
+        <button class="buy-button" data-product-id="3">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 4.jpeg" alt="doll 4" />
+        <div class="product-title">doll 4</div>
+        <div class="product-price">$49.90</div>
+        <button class="buy-button" data-product-id="4">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 5.jpeg" alt="doll 5" />
+        <div class="product-title">doll 5</div>
+        <div class="product-price">$59.99</div>
+        <button class="buy-button" data-product-id="5">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 6.jpeg" alt="doll 6" />
+        <div class="product-title">doll 6</div>
+        <div class="product-price">$69.99</div>
+        <button class="buy-button" data-product-id="6">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 7.jpeg" alt="doll 7" />
+        <div class="product-title">doll 7</div>
+        <div class="product-price">$79.99</div>
+        <button class="buy-button" data-product-id="7">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 8.jpeg" alt="doll 8" />
+        <div class="product-title">doll 8</div>
+        <div class="product-price">$89.99</div>
+        <button class="buy-button" data-product-id="8">Buy Now</button>
+      </div>
+
+      <div class="product">
+        <img src="./images/doll 9.jpeg" alt="doll 9" />
+        <div class="product-title">doll 9</div>
+        <div class="product-price">$99.99</div>
+        <button class="buy-button" data-product-id="9">Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Add more products as needed -->
+
+    <script>
+      // Get all "Buy Now" buttons
+      var buyButtons = document.querySelectorAll(".buy-button");
+
+      // Add click event listener to each button
+      buyButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          // Get the product ID
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          var productId = button.getAttribute("data-product-id");
+          // Redirect to the product details page with the product ID
+          window.location.href = "doll.html?id="1"; data-product-id ="1" ;
+
+           // Redirect to another page after form submission
+           window.location.href = "doll.html";
+        });
+      });
+    </script>
+  </body>
+</html>

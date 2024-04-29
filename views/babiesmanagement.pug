@@ -50,7 +50,7 @@ table
             td
                 button(onclick="clockout()") Clockout 
             td 
-                a(href="/babiesUpdate/:id") Update
+                a(href="/babiesUpdate/"+ baby._id) Update
             td
                  form(method="POST" action="/delete")
                  input(type="hidden" name="id" value=baby._id)

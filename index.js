@@ -22,6 +22,7 @@ const sitterRoutes = require("./routes/sitterRoutes");
 const parentRoutes = require("./routes/parentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const authenticationRoutes = require("./routes/authenticationRoutes");
+const daycareRoutes = require("./routes/daycareRoutes");
 
 //instantiations
 const app = express();
@@ -78,42 +79,9 @@ app.use("/", sitterRoutes);
 app.use("/", parentRoutes);
 app.use("/", adminRoutes);
 app.use("/",authenticationRoutes );
+// app.use("/",daycareRoutes );
 
-// app.get("/", (req, res) => {
-//   res.send("Homepage! Hello world.");
-// });
 
-// app.get("/about", (req, res) => {
-//   res.send("About page. Nice.");
-// });
-
-// `app.Method(PATH,HANDLER);
-
-// app.get("/course", (req, res) => {
-//   res.send("you have hit the course page");
-// });
-
-// app.get("/books/:bookId", (req, res) => {
-//   res.send(req.params.bookId);
-//   console.log(req.params.bookid);
-// });
-
-// app.get("/students/:name", (req, res) => {
-//   res.send("This iis my students name" + req.params.name);
-// });
-
-// app.get("/students/:id", (req, res) => {
-//   res.send("This iis my students name" + req.params);
-// });
-
-// //querry parrams
-// app.get("/student", (req, res) => {
-//   res.send("This is class" + req.querry.class + "cohort" + req.querry.cohort);
-// });
-
-// app.get("/babies", (req, res) => {
-//   res.send("This is class" + req.querry.class + "age" + req.querry.age);
-// });
 
 // app.get("/index", (req, res) => {
 //   res.sendFile(__dirname + "/index.html");

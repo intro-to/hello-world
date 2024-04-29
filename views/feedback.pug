@@ -1,0 +1,68 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Feedback Form
+  link(rel='stylesheet' href='feed.css')
+.container
+  h2 Feedback Form
+  form#feedbackForm
+    .category
+      span Health:
+      label
+        input(type='checkbox' name='health_rating' value='good')
+        | Good
+      label
+        input(type='checkbox' name='health_rating' value='bad')
+        | Bad
+      label
+        input(type='checkbox' name='health_rating' value='moderate')
+        | Moderate
+      label
+        input(type='checkbox' name='health_rating' value='very_good')
+        | Very Good
+    .category
+      span Feeding:
+      label
+        input(type='checkbox' name='feeding_rating' value='good')
+        | Good
+      label
+        input(type='checkbox' name='feeding_rating' value='bad')
+        | Bad
+      label
+        input(type='checkbox' name='feeding_rating' value='moderate')
+        | Moderate
+      label
+        input(type='checkbox' name='feeding_rating' value='very_good')
+        | Very Good
+    .category
+      span Core Activities:
+      label
+        input(type='checkbox' name='core_activities_rating' value='good')
+        | Good
+      label
+        input(type='checkbox' name='core_activities_rating' value='bad')
+        | Bad
+      label
+        input(type='checkbox' name='core_activities_rating' value='moderate')
+        | Moderate
+      label
+        input(type='checkbox' name='core_activities_rating' value='very_good')
+        | Very Good
+    .category
+      span Discipline:
+      label
+        input(type='checkbox' name='discipline_rating' value='good')
+        | Good
+      label
+        input(type='checkbox' name='discipline_rating' value='bad')
+        | Bad
+      label
+        input(type='checkbox' name='discipline_rating' value='moderate')
+        | Moderate
+      label
+        input(type='checkbox' name='discipline_rating' value='very_good')
+        | Very Good
+    div
+      input(type='submit' value='Submit')
+script(src='feed.js')
