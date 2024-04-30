@@ -22,7 +22,6 @@ const sitterRoutes = require("./routes/sitterRoutes");
 const parentRoutes = require("./routes/parentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const authenticationRoutes = require("./routes/authenticationRoutes");
-const daycareRoutes = require("./routes/daycareRoutes");
 
 //instantiations
 const app = express();
@@ -73,6 +72,9 @@ app.get("/registeradmin", (req, res) => {
 });
 app.get("/babiesUpdate", (req, res) => {
   res.render("babiesUpdate");
+});
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 //use imported routes

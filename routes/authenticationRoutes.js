@@ -2,15 +2,16 @@ const express = require("express");
 const router = express.Router();
 const passport =require("passport");
 
-router.get("/login", (req, res)=>{
+router.get("/login", (req, res) => {
     res.render("log")
 })
 
 router.post("/login", passport.authenticate("local",{failureRedirect: "/login"}), (req, res)=> {
+    console.log("logged in user: ", req.session)
     res.redirect("/registerbaby") 
  });
 
- router.get("/logout", (req, res)=>{
+ router.get("/logout", (req, res) => {
     if (req.session) {
         req.session.destroy((error) => {
             if (error){
@@ -20,6 +21,12 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
         });
     }
  });
+
+ router.get("/", (req, res) => {
+    res.render("index")
+});
+
+
 
 
 module.exports = router ;

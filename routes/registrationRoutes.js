@@ -37,7 +37,7 @@ router.get("/babiesList", async (req, res) =>{
   
 });
 
-router.post("/delete", async (req, res) => {
+router.post("/deletebaby", async (req, res) => {
   try {
     console.log (req.body.id)
     await registration.deleteOne({_id:req.body.id});
@@ -61,7 +61,7 @@ router.get("/babiesUpdate/:id", async (req, res) => {
 
 router.post("/babiesUpdate", async (req, res) => {
   try {
-    await registerbaby.findOneAndUpdate({ _id: req.query.id }, req.body);
+    await registration.findOneAndUpdate({ _id: req.query.id }, req.body);
     res.redirect("/babiesList");
   } catch (error) {
     res.status(404).send("unable to update baby in the db!");
