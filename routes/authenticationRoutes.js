@@ -26,7 +26,20 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/login"})
     res.render("index")
 });
 
+router.get("/aboutus", (req, res) => {
+    res.render("aboutus")
+});
 
+router.get("/review", (req, res) => {
+    res.render("review")
+});
 
+router.get("/homepage", (req, res) => {
+    res.render("homepage")
+});
+
+router.get("/dashboard", (req, res) => {
+    res.render("dashboard")
+});
 
 module.exports = router ;

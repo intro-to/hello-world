@@ -5,26 +5,16 @@ head
   title Document
   link(rel='stylesheet' href='/css/sitter.css')
 
-h1 Registered sitter
+h1 Clockedin sitters
 table
   thead
           tr
             th Name
             th Age
             th Location
-            th Date of Birth
             th Gender
-            th Next of Kin
-            th NIN
-            th Recommender
-            th Religion
-            th Level of Education
             th Number
             th Contacts
-            th Status
-            th Clockin
-            th Clockout
-            th Action
            
   tbody#sitter-list
        if sitters.length 
@@ -33,22 +23,10 @@ table
             td   #{sitter.name} 
             td  #{sitter.age}
             td  #{sitter.location} 
-            td  #{sitter.dob} 
             td  #{sitter.gender} 
-            td  #{sitter.nextOfkin} 
-            td  #{sitter.NIN} 
-            td  #{sitter.recommendersName} 
-            td  #{sitter.religion} 
-            td  #{sitter.educationLevel} 
             td  #{sitter.sitterNumber} 
             td  #{sitter.contacts} 
-            td  #{sitter.status} 
-            td 
-                a(href="/sitterClockin/"+ sitter._id) Clockin 
-            td
-                button(onclick="clockout()") Clockout 
-            td 
-                a(href="/sittersUpdate/" +sitter._id) Update
+           
             td
                 form(method="POST" action="/deletesitter")
                   input(type="hidden" name="id" value=sitter._id)

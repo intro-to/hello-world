@@ -13,7 +13,7 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   }, 
-  Dateofbirth:{
+  dob:{
     type:Date,
     trim:true
   }, 

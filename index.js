@@ -73,6 +73,15 @@ app.get("/registeradmin", (req, res) => {
 app.get("/babiesUpdate", (req, res) => {
   res.render("babiesUpdate");
 });
+app.get("/babyClockin", (req, res) => {
+  res.render("babyClockin");
+});
+app.get("/sittersUpdate", (req, res) => {
+  res.render("sittersUpdate");
+});
+app.get("/sitterClockin", (req, res) => {
+  res.render("sitterClockin");
+});
 app.get("/", (req, res) => {
   res.render("index");
 });

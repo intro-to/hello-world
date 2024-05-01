@@ -5,52 +5,28 @@ head
   title Document
   link(rel='stylesheet' href='/css/sitter.css')
 
-h1 Registered babies
+h1 Clockedin Babies
 table
   thead
           tr
             th Name
-            th Age
-            th Location
-            th Date of Birth
             th Gender
-            th Next of Kin
             th Time of arrival
-            th Parent Name
-            th Fees
-            th Period of stay
             th Number
             th Name of person taking care 
             th Time out
-            th Status
-            th Clockin
-            th Clockout
-            th Action
            
   tbody#baby-list
        if babies.length 
        each baby in babies 
           tr
             td   #{baby.name} 
-            td  #{baby.age }
-            td  #{baby.Location} 
-            td  #{baby.dob} 
             td  #{baby.gender} 
-            td  #{baby.nextOfKin} 
             td  #{baby.timeofArrival} 
-            td  #{baby.parentName} 
-            td  #{baby.fees} 
-            td  #{baby.periodofStay} 
             td  #{baby.babiesNumber} 
             td  #{baby.nameofpersontakingcare}
             td  #{baby.TimeOut} 
-            td  #{baby.status} 
-            td 
-                a(href="/babyClockin/"+ baby._id) Clockin
-            td
-                button(onclick="clockout()") Clockout 
-            td 
-                a(href="/babiesUpdate/"+ baby._id) Update
+          
             td
                  form(method="POST" action="/deletebaby")
                   input(type="hidden" name="id" value=baby._id)

@@ -1,0 +1,52 @@
+doctype html
+// index.html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Daycare Management System
+  link(rel='stylesheet' href='/css/style.css')
+h1 Sitters Update Form
+.container
+  form#sittersForm(action = "/sittersUpdate/:id"+sitter._id  method="POST")
+    .form-group
+      label(for='name') Sitter Name:
+      input#name(type='text' placeholder='Sitter Name' name='name' value=sitter.name)
+    .form-group
+      label(for='age') Sitter Age:
+      input#age(type='number' placeholder='Sitter Age' name=' age' value=sitter.age)
+    .form-group
+      label(for='location') Sitter Location:
+      input#location(type='text' placeholder='Sitter Location' name=' location' value=sitter.location)
+    .form-group
+      label(for='dob') Sitter Date of Birth:
+      input#dob(type='date' placeholder='Sitter Date of Birth' name='dot' value=sitter.dot)
+    .form-group
+      label(for='gender') Sitter Gender:
+      select#gender(name='gender')
+        option(value='male' selected=sitter.gender=== 'male') Male
+        option(value='female' selected=sitter.gender=== 'female') Female
+    .form-group
+      label(for='nextOfKin') Sitter Next of Kin:
+      input#nextOfKin(type='text' placeholder='Sitter Next of Kin' name='nextOfkin' value=sitter.nextOfkin)
+    .form-group
+      label(for='nin') Sitter NIN:
+      input#nin(type='text' placeholder='Sitter NIN' name='NIN' value=sitter.NIN)
+    .form-group
+      label(for='recommendersName') Sitter Recommender&apos;s Name:
+      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='recommendersName' value=sitter.recommendersName)
+    .form-group
+      label(for='religion') Sitter Religion:
+      input#religion(type='text' placeholder='Sitter Religion' name='religion' value=sitter.religion)
+    .form-group
+      label(for='educationLevel') Sitter Level of Education:
+      input#educationLevel(type='text' placeholder='Sitter Level of Education' name='educationLevel' value=sitter.educationLevel)
+    .form-group
+      label(for='sitterNumber') Sitter Number:
+      input#sitterNumber(type='text' placeholder='Sitter Number' name='sitterNumber' value=sitter.sitterNumber)
+    .form-group
+      label(for='contacts') Sitter Contacts:
+      input#contacts(type='text' placeholder='Sitter Contacts' name='contacts' value=sitter.contacts)
+    button(type='submit') Update Sitter
+#sitterList
+script(src='https://unpkg.com/axios/dist/axios.min.js')
+script(src='script.js')

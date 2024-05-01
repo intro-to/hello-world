@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+ head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel='stylesheet' href='/css/style.css')
+ .container
+    form(id='babyclockinForm', action='/babyClockin', method='POST')
+        label(for='name') Name:
+        input(type='text', id='name', name='name')
+        label(for='gender') Gender:
+        select(id='gender', name='gender')
+            option(value='male') Male
+            option(value='female') Female
+            option(value='other') Other
+        label(for='timeofArrival') Time of Arrival:
+        input(type='time', id='timeofArrival', name='timeofArrival')
+        label(for='TimeOut') Time of Departure:
+        input(type='time', id='TimeOut', name='TimeOut')
+        label(for='nameofpersontakingcare') Name of Caretaker:
+        input(type='text', id='nameofpersontakingcare', name='nameofpersontakingcare')
+        label(for='id') ID:
+        input(type='text', id='id', name='id')
+    button(type='submit') Clock In
