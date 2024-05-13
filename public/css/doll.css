@@ -1,0 +1,87 @@
+
+    
+    /* .form-container {
+        max-width: 500px;
+        margin:  auto;
+        background-color: #e946c6;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+    .form-group {
+    margin-bottom: 20px;
+    }
+    .form-group label {
+    display: block;
+    font-weight: bold;
+    }
+    .form-group input, .form-group textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    }
+    .form-group img {
+    max-width: 90%;
+    height: auto;
+    margin-bottom: 10px;
+    }
+    .submit-btn {
+    display: block;
+    width: 20%;
+    padding: 10px;
+    background-color: #8800C7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    } */ 
+
+
+    .form-container {
+      max-width: 500px; /* Sets the maximum width of the container */
+      margin:  auto; /* Centers the container horizontally */
+      background-color: #e946c6; /* Background color of the container */
+      border-radius: 5px; /* Rounded corners for the container */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a shadow effect */
+      padding: 20px; /* Padding inside the container */
+  }
+  
+  /* Styles for a group of form elements */
+  .form-group {
+      margin-bottom: 20px; /* Adds space between form groups */
+  }
+  
+  /* Styles for labels within form groups */
+  .form-group label {
+      display: block; /* Makes labels display as block elements */
+      font-weight: bold; /* Makes labels bold */
+  }
+  
+  /* Styles for input fields and textareas within form groups */
+  .form-group input, 
+  .form-group textarea {
+      width: 90%; /* Sets the width of input fields and textareas */
+      padding: 10px; /* Adds padding inside input fields and textareas */
+      border: 1px solid #ccc; /* Adds a border around input fields and textareas */
+      border-radius: 5px; /* Adds rounded corners to input fields and textareas */
+  }
+  
+  /* Styles for images within form groups */
+  .form-group img {
+      max-width: 90%; /* Sets the maximum width of images */
+      height: auto; /* Allows the height of images to adjust automatically */
+      margin-bottom: 10px; /* Adds space below images */
+  }
+  
+  /* Styles for the submit button */
+  .submit-btn {
+      display: block; /* Makes the button display as a block element */
+      width: 20%; /* Sets the width of the button */
+      padding: 10px; /* Adds padding inside the button */
+      background-color: #8800C7; /* Background color of the button */
+      color: #fff; /* Text color of the button */
+      border: none; /* Removes the border around the button */
+      border-radius: 5px; /* Adds rounded corners to the button */
+      cursor: pointer; /* Changes the cursor to a pointer on hover */
+  }  

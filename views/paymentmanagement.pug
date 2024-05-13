@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Time and Payments Table
+    link(rel='stylesheet' href='/css/pay.css')
+  body
+    .container
+      h2 Time and Payments
+      table#timePaymentsTable
+        thead
+          tr
+            th Date
+            th Name
+            th Time Worked
+            th Payment
+            th Action
+
+        tbody#payment-list
+          if  payment && payments.length 
+            each payment in payments
+              tr
+                td #{moment(payment.date).format("DD-MM-YYYY")}
+                td #{payment.name}
+                td #{payment.timeworked}
+                td #{payment.payment}
+                td
+                  form(method="POST" action="/deletepayment")
+                  input(type="hidden" name="id" value=payment._id)
+                  button(type="submit") Delete

@@ -3,15 +3,18 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Expense Tracker
-
+  link(rel="stylesheet", href="/css/expe.css")
 .container
   h2 Expense Tracker
   .input-group
+    label(for='date of purchase') Date:
+    input#amount(type='date' name="dob")
+  .input-group
     label(for='amount') Amount:
-    input#amount(type='number')
+    input#amount(type='number' name="amount")
   .input-group
     label(for='description') Description:
-    input#description(type='text')
+    input#description(type='text' name="description")
   .input-group
     label(for='category') Category:
     select#category

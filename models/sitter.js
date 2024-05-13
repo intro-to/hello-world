@@ -48,7 +48,11 @@ const registrationSchema = new mongoose.Schema( {
   contacts:{
     type:String,
     trim:true
-  }
+  },
+  status:{
+    type:String,
+    trim:true,
+  } 
 
 });
 

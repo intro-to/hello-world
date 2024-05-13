@@ -5,9 +5,9 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
         link(rel='stylesheet' href='/css/style.css')
-h1 Clockedin Form
+h1 Clockedout Form
 div.container
-  form(id='sitterClockinForm', action='/sitterClockin?id'+sitter._id method='POST')
+  form(id='sitterClockoutForm', action='/sitterClockout?id'+sitter._id method='POST')
     label(for='name') Name:
     input(type='text', id='name', name='name')
     label(for='age') Age:
@@ -26,5 +26,5 @@ div.container
     label(for='status') Status:
     select(id='status', name='status')
       option(value='clockedin') Clocked In
-      option(value='clockedout') Clocked 
-    button(type='submit') Clock In
+      option(value='clockedout') Clocked  
+    button(type='submit') Clock Out

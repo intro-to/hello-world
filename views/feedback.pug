@@ -3,10 +3,10 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Feedback Form
-  link(rel='stylesheet' href='feed.css')
+  link(rel='stylesheet' href='/css/feed.css')
 .container
   h2 Feedback Form
-  form#feedbackForm
+  form#feedbackForm(action = "/feedback" method="POST")
     .category
       span Health:
       label

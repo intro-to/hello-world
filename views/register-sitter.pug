@@ -46,6 +46,10 @@ h1 Sitters Registration Form
     .form-group
       label(for='contacts') Sitter Contacts:
       input#contacts(type='text' placeholder='Sitter Contacts' name='contacts')
+      label(for='status') Status:
+    select(id='status', name='status')
+      option(value='clockedin') Clocked In
+      option(value='clockedout') Clocked 
     button(type='submit') Add Sitter
 #sitterList
 script(src='https://unpkg.com/axios/dist/axios.min.js')

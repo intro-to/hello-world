@@ -8,7 +8,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", passport.authenticate("local",{failureRedirect: "/login"}), (req, res)=> {
     console.log("logged in user: ", req.session)
-    res.redirect("/registerbaby") 
+    res.redirect("/homepage") 
  });
 
  router.get("/logout", (req, res) => {
@@ -40,6 +40,25 @@ router.get("/homepage", (req, res) => {
 
 router.get("/dashboard", (req, res) => {
     res.render("dashboard")
+});
+router.get("/babydashboard", (req, res) => {
+    res.render("babydash")
+});
+router.get("/sitterdashboard", (req, res) => {
+    res.render("sitterdash")
+});
+router.get("/procure", (req, res) => {
+    res.render("procure")
+});
+
+router.get("/purchase", (req, res) => {
+    res.render("purchase")
+});
+router.get("/expence", (req, res) => {
+    res.render("expence")
+});
+router.get("/paymentmanagement", (req, res) => {
+    res.render("paymentmanagement")
 });
 
 module.exports = router ;

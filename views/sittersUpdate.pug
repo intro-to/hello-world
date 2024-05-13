@@ -7,7 +7,7 @@ head
   link(rel='stylesheet' href='/css/style.css')
 h1 Sitters Update Form
 .container
-  form#sittersForm(action = "/sittersUpdate/:id"+sitter._id  method="POST")
+  form#sittersForm(action = "/sittersUpdate?id"+sitter._id  method="POST")
     .form-group
       label(for='name') Sitter Name:
       input#name(type='text' placeholder='Sitter Name' name='name' value=sitter.name)

@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Dolls
+    link(rel='stylesheet' href='/css/doll.css')
+
+  body
+    .container
+      each doll in dolls
+        .item
+          img(src='{{ doll.image }}' alt='{{ doll.name }}')
+
+          h2=doll.itemName
+          p Price: #{doll.itemPrice}
+          p Seller: #{doll.seller}
+          p Description: #{doll.description}

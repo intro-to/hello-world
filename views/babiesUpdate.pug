@@ -34,11 +34,20 @@ h1 Babies Update Form
       label(for='parentsName') parents names:
       input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='parentName' value=baby.parentName)
     .form-group
-      label(for='fees in Ugx') fee in Ugx:
-      input#fees(type='text' placeholder='fees in Ugx' name='fees' value=baby.fees)
+      label(for='fees in Ugx') Fees in Ugx:
+      select#fees(name='fees')
+        option(value='10000') 10000
+        option(value='15000') 15000
+        option(value='others') Others
     .form-group
-      label(for='period of stay') period of stay:
-      input(type='text' id='period of stay' placeholder='Period of Stay' name='periodofStay' value=baby.periodofStay)
+      label(for='periodOfStay') Period of Stay:
+      select#periodofStay(name='periodofStay')
+        option(value='half day') Half day
+        option(value='full day') Full day
+        option(value='others') Others
+    .form-group
+      label(for='dob')  Date of Payment:
+      input#dob(type='date' placeholder=' Date of Payment' name='dob')
     .form-group
       label(for='babiesNumber') Baby&apos;s Number:
       input#babiesNumber(type='text' placeholder='Babies Number' name='babiesNumber' value=baby.babiesNumber)

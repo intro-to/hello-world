@@ -67,7 +67,7 @@ router.post("/babiesUpdate", async (req, res) => {
 //fetching list all babies clocked in from database 
 router.get("/babyrendered", async (req, res)=> {
   try {
-    let babies = await registration.find({status: "ClockedIn"})
+    let babies = await registration.find({status: "clockedin"})
     res.render("renderBabyClockin", {babies:babies}) // to display babies from data base
     console.log("display babies clocked in", babies);
 
@@ -104,10 +104,10 @@ router.post("/babyClockin", async(req, res)=> {
 });
 
 //fetching list babies clocked Out from database 
-router.get("/clockingOutList", async (req, res)=> {
+router.get("/babyrenderedout", async (req, res)=> {
   try {
-    let babies = await BabiesRegisterModel.find({status: "ClockedOut"})
-    res.render("./babies/renderBabyClockOut", {babies:babies}) // to display babies from data base
+    let babies = await registration.find({status: "clockedout"})
+    res.render("renderBabyClockout", {babies:babies}) // to display babies from data base
     console.log("display babies clocked out", babies);
 
   } catch (error) {
@@ -117,13 +117,13 @@ router.get("/clockingOutList", async (req, res)=> {
   });
 
 //clockOut baby route for form in database
- router.get("/ClockingOut/:id", async(req, res)=> { 
+ router.get("/babyClockout/:id", async(req, res)=> { 
   try{  
-   const sitters  = await SittersModel.find()
-    const babyClockOut = await BabiesRegisterModel.findOne({_id: req.params.id});
-    res.render("./babies/babyClockOut", {
-     baby:babyClockOut,
-     sitters:sitters
+   const baby  = await registration.find()
+    const babyClockout = await registration.findOne({_id: req.params.id});
+    res.render("babyClockout", {
+     baby:babyClockout,
+    //  sitters:sitters
   });
   } catch(error){
      console.log("error finding a baby!", error);
@@ -131,10 +131,10 @@ router.get("/clockingOutList", async (req, res)=> {
   }
 });
 
-router.post("/ClockingOut", async(req, res)=> {
+router.post("/babyClockout", async(req, res)=> {
   try {
-     await BabiesRegisterModel.findOneAndUpdate({_id: req.query.id}, req.body);
-     res.redirect("/clockingOutList");
+     await registration.findOneAndUpdate({_id: req.query.id}, req.body);
+     res.redirect("/babyrenderedout");
 
   } catch (error) {
      res.status(404).send("unable to update baby in the db!");  

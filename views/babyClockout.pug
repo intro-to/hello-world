@@ -5,9 +5,9 @@ head
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
     link(rel='stylesheet' href='/css/style.css')
-h1 Clockedin Form
+h1 Clockedout Form
 .container
-  form(id='babyclockinForm', action='/babyClockin?id='+baby._id method='POST')
+  form(id='babyclockoutForm', action='/babyClockout?id='+baby._id  method='POST')
     label(for='name') Name:
     input(type='text', id='name', name='name')
     label(for='gender') Gender:
@@ -27,4 +27,4 @@ h1 Clockedin Form
     select(id='status', name='status')
       option(value='clockedin') Clocked In
       option(value='clockedout') Clocked 
-    button(type='submit') Clock In
+    button(type='submit') Clock Out

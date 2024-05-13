@@ -7,29 +7,29 @@ head
 .container
   h1 Welcome!
   .icons
-    #sitterIcon.icon
-      img(src='sitter_icon.png' alt='Sitter')
-      p Sitter
+    //- #sitterIcon.icon
+    //-   img(src='sitter_icon.png' alt='Sitter')
+    //-   p Sitter
     #adminIcon.icon
       img(src='admin_icon.png' alt='Admin')
       p Admin
-    #parentIcon.icon
-      img(src='parent_icon.png' alt='Parent')
-      p Parent
+    //- #parentIcon.icon
+    //-   img(src='parent_icon.png' alt='Parent')
+    //-   p Parent
 script.
   // Add click event listeners to each icon
   document
   .getElementById("sitterIcon")
   .addEventListener("click", function () {
-  window.location.href = "sittersign.html"; // Redirect to sitter sign-in page
+  window.location.href = "feedback"; // Redirect to sitter sign-in page
   });
   document
   .getElementById("adminIcon")
   .addEventListener("click", function () {
-  window.location.href = "sign.html"; // Redirect to admin sign-in page
+  window.location.href = "registeradmin"; // Redirect to admin sign-in page
   });
   document
   .getElementById("parentIcon")
   .addEventListener("click", function () {
-  window.location.href = "parentsign.html"; // Redirect to parent sign-in page
+  window.location.href = "registerparent"; // Redirect to parent sign-in page
   });

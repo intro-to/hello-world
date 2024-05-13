@@ -52,7 +52,11 @@ const registrationSchema = new mongoose.Schema( {
   TimeOut:{
     type:String,
     trim:true
-  }
+  },
+  status:{
+    type:String,
+    trim:true,
+  } 
 
 });
 

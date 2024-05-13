@@ -12,9 +12,20 @@ router.get("/registerparent", (req, res) => {
     const parent = new registration(req.body)
     parent.save();
     console.log(parent)
-    res.send("sucess")
+    res.redirect("review")
     // res.redirect("/index")
 
 });
+//feedback
+router.get("/feedback", (req, res) => {
+  res.render("feedback")
+});
+router.post("/feedback", (req, res) => {
+  const feedback = new registration(req.body)
+  feedback.save();
+  console.log(feedback)
+  res.redirect("feedback")
+});
+
   
 module.exports = router;

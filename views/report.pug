@@ -1,0 +1,76 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+     link(rel='stylesheet' href='/css/report.css')
+  body
+    h1= title
+
+    form(action='/collection', method='GET')
+      label(for='searchdate') Search Date:
+      input(type='date', id='searchdate', name='searchdate', value=defaultDate)
+      button(type='submit') Search
+
+    if collections.length > 0
+      h2 Collections
+      table
+        thead
+          tr
+            th Name
+            th Age
+            th Location
+            th Date of Payment
+            th Fee
+        tbody
+          each collection in collections
+            tr
+              td collection.name
+              td collection.age
+              td collection.location
+              td collection.dateofPayment
+              td collection.fee
+    else
+      p No collection details found.
+
+    if expenses.length > 0
+      h2 Expenses
+      table
+        thead
+          tr
+            th Name
+            th Amount
+            th Date of Purchase
+        tbody
+          each expense in expenses
+            tr
+              td= expense.name
+              td= expense.amount
+              td= expense.dateofPurchase
+    else
+      p No expense details found.
+
+    if dollExpenseDetails.length > 0
+      h2 Doll Expenses
+      table
+        thead
+          tr
+            th Name
+            th Amount
+            th Date of Purchase
+        tbody
+          each dollExpense in dollExpenseDetails
+            tr
+              td= dollExpense.name
+              td= dollExpense.amount
+              td= dollExpense.dateofPurchase
+    else
+      p No doll expense details found.
+
+    if totalFees
+      h3 Total Fees Collection: #{totalFees.totalCollection}
+    if totalExpenses
+      h3 Total Expenses: #{totalExpenses.totalExpenses}
+    if dollTotalExpenses
+      h3 Total Doll Expenses: #{dollTotalExpenses.totalDollExpenses}

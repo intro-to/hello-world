@@ -3,11 +3,12 @@ const express = require("express"); // for posting
 const mongoose = require("mongoose"); //for mongodb
 const path = require("path"); 
 const passport = require("passport");
+const moment = require("moment")
 const expressSession = require("express-session")({
   secret:"secret", 
   resave:false,
   saveUninitialized:false
-})
+}) 
 
 require("dotenv").config();
 const port = 3501;
@@ -22,7 +23,9 @@ const sitterRoutes = require("./routes/sitterRoutes");
 const parentRoutes = require("./routes/parentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const authenticationRoutes = require("./routes/authenticationRoutes");
-
+const paymentRoutes = require("./routes/paymentRoutes")
+const dollRoutes= require("./routes/dollRoutes")
+// const feedbackRoutes= require("./routes/feedbackRoutes")
 //instantiations
 const app = express();
 
@@ -37,6 +40,7 @@ mongoose.connection
     console.error(`Connection error: ${err.message}`);
   });
 
+  app.locals.moment = moment
 //  setting the view engine
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views")); //specify the directory where the views are found
@@ -76,15 +80,33 @@ app.get("/babiesUpdate", (req, res) => {
 app.get("/babyClockin", (req, res) => {
   res.render("babyClockin");
 });
+app.get("/babyClockout", (req, res) => {
+  res.render("babyClockout");
+});
 app.get("/sittersUpdate", (req, res) => {
   res.render("sittersUpdate");
 });
 app.get("/sitterClockin", (req, res) => {
   res.render("sitterClockin");
 });
+app.get("/sitterClockout", (req, res) => {
+  res.render("sitterClockout");
+});
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/feedback", (req, res) => {
+  res.render("feedback");
+});
+app.get("/payment", (req, res) => {
+  res.render("payment");
+});
+app.get("/sell-item", (req, res) => {
+  res.render("doll");
+});
+// app.get("/feedback", (req, res) => {
+//   res.render("feedback");
+// });
 
 //use imported routes
 app.use("/", registrationRoutes);
@@ -92,6 +114,9 @@ app.use("/", sitterRoutes);
 app.use("/", parentRoutes);
 app.use("/", adminRoutes);
 app.use("/",authenticationRoutes );
+app.use("/", paymentRoutes);
+app.use("/", dollRoutes);
+// app.use("/", feedbackRoutes);
 // app.use("/",daycareRoutes );
 
 

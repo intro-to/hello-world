@@ -22,5 +22,5 @@
   console.log("Contact Number:", parentContact);
   console.log("Emergency Contact:", emergencyContact);
   // Redirect to another page after form submission
-  window.location.href = "purchase.html";
+  window.location.href = "review.pug";
   });

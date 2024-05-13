@@ -8,14 +8,11 @@ head
   h2 Login
   form#loginForm(action="/login" method="POST")
     .form-group
-      label(for='username') Username:
-      input#username(type='text' required)
-    .form-group
       label(for='email') Email:
-      input#email(type='email' required)
+      input#email(type='email' name="email")
     .form-group
       label(for='password') Password:
-      input#password(type='password' required)
+      input#password(type='password' name="password")
     .form-group
       button.btn(type='submit') Login
 //- script(src='https://unpkg.com/axios/dist/axios.min.js')

@@ -1,0 +1,28 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sell Your Item
+  link(rel='stylesheet' href='/css/doll.css')
+
+.form-container
+  form#sellForm(action='/sell-item' method='POST')
+    .form-group
+      label(for='dob')  Date of Purchase:
+      input#dob(type='date' placeholder=' Date of Purchase' name='dob')
+    .form-group
+      label(for='itemName') Name :
+      input#itemName(type='text' name='itemName' )
+    .form-group
+      label(for='itemImage') Image :
+      input#itemImage(type='file' name='itemImage' accept='image/*' )
+    .form-group
+      label(for='itemPrice') Price:
+      input#itemPrice(type='number' name='itemPrice' )
+    .form-group
+      label(for='seller') Seller:
+      input#seller(type='text' name='seller' )
+    .form-group
+      label(for='description') Description:
+      textarea#description(name='description' rows='5' )
+    button.submit-btn(type='submit') Sell
