@@ -8,11 +8,12 @@ html
 
   body
     .container
-      each doll in dolls
-        .item
-          img(src='{{ doll.image }}' alt='{{ doll.name }}')
+         if dolls.length
+            each doll in dolls
+              .item
+                img(src= doll.itemImage , alt='Item Image')
 
-          h2=doll.itemName
-          p Price: #{doll.itemPrice}
-          p Seller: #{doll.seller}
-          p Description: #{doll.description}
+                h2=doll.itemName
+                p Price: #{doll.itemPrice}
+                p Seller: #{doll.seller}
+                p Description: #{doll.description}

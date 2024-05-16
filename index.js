@@ -47,6 +47,7 @@ app.set("views", path.join(__dirname, "views")); //specify the directory where t
 
 //middleware
 app.use(express.static(path.join(__dirname, "public"))); //set directory for static files
+app.use("/public/images/uploads", express.static(__dirname +"/public/images/uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

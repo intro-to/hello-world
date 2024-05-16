@@ -12,7 +12,11 @@ const registrationSchema = new mongoose.Schema( {
   numberOfBabies:{
     type:String,
     trim:true
-  } 
+  },
+  totalPayment:{
+    type:String,
+    trim:true
+  }  
   
 });
 

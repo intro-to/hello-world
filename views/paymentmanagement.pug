@@ -13,7 +13,7 @@ html
           tr
             th Date
             th Name
-            th Time Worked
+            th Number of Babies
             th Payment
             th Action
 
@@ -23,8 +23,8 @@ html
               tr
                 td #{moment(payment.date).format("DD-MM-YYYY")}
                 td #{payment.name}
-                td #{payment.timeworked}
-                td #{payment.payment}
+                td #{payment.numberOfBabies}
+                td #{payment.totalPayment}
                 td
                   form(method="POST" action="/deletepayment")
                   input(type="hidden" name="id" value=payment._id)
