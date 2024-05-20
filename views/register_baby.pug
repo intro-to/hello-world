@@ -1,68 +1,89 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Daycare Management System
-  link(rel='stylesheet' href='/css/style.css')
-h1 Babies Registration Form
-.container
-  form#babiesForm(action = "/registerbaby" method="POST")
-    .form-group
-      label(for='name') Babies Name:
-      input#name(type='text' placeholder='Babies Name' name='name')
-    .form-group
-      label(for='age') Babies Age:
-      input#age(type='number' placeholder='Babies Age' name='age')
-    .form-group
-      label(for='location') Babies Location:
-      input#location(type='text' placeholder='Babies Location' name='Location')
-    .form-group
-      label(for='dob') Babies Date of Birth:
-      input#dob(type='date' placeholder='Babies Date of Birth' name='dob')
-    .form-group
-      label(for='gender') Babies Gender:
-      select#gender(name='gender')
-        option(value='male') Male
-        option(value='female') Female
-    .form-group
-      label(for='name') name of person brought the baby:
-      input#nextOfKin(type='text' placeholder='name of person brought the baby' name='nextOfKin')
-    .form-group
-      label(for='time of arrival') time of arrival:
-      input#time(type='text' placeholder='Time of Arrival' name='timeofArrival')
-    .form-group
-      label(for='parentsName') parents names:
-      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='parentName')
-    .form-group
-      label(for='fees in Ugx') Fees in Ugx:
-      select#fees(name='fees')
-        option(value='10000') 10000
-        option(value='15000') 15000
-        option(value='others') Others
-    .form-group
-      label(for='periodOfStay') Period of Stay:
-      select#periodofStay(name='periodofStay')
-        option(value='half day') Half day
-        option(value='full day') Full day
-        option(value='others') Others
-    .form-group
-      label(for='dob')  Date of Payment:
-      input#dob(type='date' placeholder=' Date of Payment' name='dob')
-    .form-group
-      label(for='babiesNumber') Baby&apos;s Number:
-      input#babiesNumber(type='text' placeholder='Babies Number' name='babiesNumber')
-    .form-group
-      label(for='name of the person taking the baby') name of the person taking the baby:
-      input#name(type='text' placeholder='Name of The Person taking the Baby' name='nameofpersontakingcare')
-    .form-group
-      label(for='time out') time out:
-      input#Time(type='time' placeholder='Time Out' name='TimeOut')
-      label(for='status') Status:
-    select(id='status', name='status')
-      option(value='clockedin') Clocked In
-      option(value='clockedout') Clocked 
-    button(type='submit') Add Baby
-#babyList
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Daycare Management System
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Babies Registration Form
+    .container
+      form#babiesForm(action="/registerbaby" method="POST")
+        .form-group
+          label(for="name") Babies Name:
+          input#name(type="text" placeholder="Babies Name" name="name")
+          span.error#nameError Please enter a valid name.
+        .form-group
+          label(for="age") Babies Age:
+          input#age(type="number" placeholder="Babies Age" name="age")
+          span.error#ageError Please enter a valid age.
+        .form-group
+          label(for="location") Babies Location:
+          input#location(type="text" placeholder="Babies Location" name="location")
+          span.error#locationError Please enter a valid location.
+        .form-group
+          label(for="dob") Babies Date of Birth:
+          input#dob(type="date" placeholder="Babies Date of Birth" name="dob")
+          span.error#dobError Please enter a valid date of birth.
+        .form-group
+          label(for="gender") Babies Gender:
+          select#gender(name="gender")
+            option(value="") Select Gender
+            option(value="male") Male
+            option(value="female") Female
+          span.error#genderError Please select a gender.
+        .form-group
+          label(for="nextOfKin") Name of person who brought the baby:
+          input#nextOfKin(type="text" placeholder="Name of person who brought the baby" name="nextOfKin")
+          span.error#nextOfKinError Please enter a valid name.
+        .form-group
+          label(for="time") Time of arrival:
+          input#time(type="time" placeholder="Time of Arrival" name="timeofArrival")
+          span.error#timeError Please enter a valid time.
+        .form-group
+          label(for="parentName") Parents' names:
+          input#parentName(type="text" placeholder="Parents' Name" name="parentName")
+          span.error#parentNameError Please enter valid names.
+        .form-group
+          label(for="fees") Fees in Ugx:
+          select#fees(name="fees")
+            option(value="") Select Fee
+            option(value="10000") 10000
+            option(value="15000") 15000
+            option(value="others") Others
+          span.error#feesError Please select a fee.
+        .form-group
+          label(for="periodofStay") Period of Stay:
+          select#periodofStay(name="periodofStay")
+            option(value="") Select Period
+            option(value="half day") Half day
+            option(value="full day") Full day
+            option(value="others") Others
+          span.error#periodofStayError Please select a period of stay.
+        .form-group
+          label(for="paymentDate") Date of Payment:
+          input#paymentDate(type="date" placeholder="Date of Payment" name="paymentDate")
+          span.error#paymentDateError Please enter a valid date of payment.
+        .form-group
+          label(for="babiesNumber") Baby's Number:
+          input#babiesNumber(type="text" placeholder="Baby's Number" name="babiesNumber")
+          span.error#babiesNumberError Please enter a valid number.
+        .form-group
+          label(for="nameofpersontakingcare") Name of the person taking the baby:
+          input#nameofpersontakingcare(type="text" placeholder="Name of the person taking the baby" name="nameofpersontakingcare")
+          span.error#nameofpersontakingcareError Please enter a valid name.
+        .form-group
+          label(for="timeOut") Time out:
+          input#timeOut(type="time" placeholder="Time Out" name="timeOut")
+          span.error#timeOutError Please enter a valid time.
+        .form-group
+          label(for="status") Status:
+          select#status(name="status")
+            option(value="") Select Status
+            option(value="clockedin") Clocked In
+            option(value="clockedout") Clocked Out
+          span.error#statusError Please select a status.
+        button(type="submit") Add Baby
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/js/script.js"></script>
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+    script(src="/js/script.js")

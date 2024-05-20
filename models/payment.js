@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const registrationSchema = new mongoose.Schema( {
+const paymentSchema = new mongoose.Schema( {
   date:{
     type:String,
     trim:true
@@ -20,4 +20,4 @@ const registrationSchema = new mongoose.Schema( {
   
 });
 
-module.exports = mongoose.model("Payment",registrationSchema )
+module.exports = mongoose.model("Payment",paymentSchema )

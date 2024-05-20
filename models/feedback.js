@@ -1,27 +1,23 @@
 const mongoose = require("mongoose");
 
 const registrationSchema = new mongoose.Schema( {
-  good:{
+ health_rating:{
     type:String,
     trim:true
   }, 
-  bad:{
+  feeding_rating:{
     type:String,
     trim:true
   } , 
-  moderate:{
+  core_activities_rating:{
     type:String,
     trim:true
   }, 
-  very_good:{
+ discipline_rating:{
     type:Date,
     trim:true
-  }, 
-  gender:{
-    type:String,
-    trim:true
-  }   
-  
+  }
+ 
 
 });
 

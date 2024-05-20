@@ -1,8 +1,8 @@
-fconst express = require("express");
+const express = require("express");
 const router = express.Router();
 
 //import model
-const registration = require("../models/payment");
+const Payment= require("../models/payment");
 
 router.get("/payment", (req, res) => {
   res.render("payment");
@@ -19,10 +19,11 @@ router.post("/payment", (req, res) => {
 //fetching payments from the db
 router.get("/paymentmanagement", async (req, res) =>{
     try {
-      console.log(req.payments)
-      let payments = await registration.find()
-      res.render("paymentmanagement" , {payment:payments})
+      let payments = await Payment.find()
+      console.log("this are the payments:" + payments)
+      res.render("paymentmanagement" , {payments:payments})
     } catch (error) {
+      console.log(error)
   
     }
     

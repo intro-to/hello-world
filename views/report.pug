@@ -26,11 +26,11 @@ html(lang='en')
         tbody
           each collection in collections
             tr
-              td collection.name
-              td collection.age
-              td collection.location
-              td collection.dateofPayment
-              td collection.fee
+              td #{collection.name}
+              td #{collection.age}
+              td #{collection.location}
+              td #{collection.dateofPayment}
+              td #{collection.fee}
     else
       p No collection details found.
 
@@ -45,9 +45,9 @@ html(lang='en')
         tbody
           each expense in expenses
             tr
-              td= expense.name
-              td= expense.amount
-              td= expense.dateofPurchase
+              td #{expense.name}
+              td #{expense.amount}
+              td #{expense.dateofPurchase}
     else
       p No expense details found.
 
@@ -62,9 +62,9 @@ html(lang='en')
         tbody
           each dollExpense in dollExpenseDetails
             tr
-              td= dollExpense.name
-              td= dollExpense.amount
-              td= dollExpense.dateofPurchase
+              td #{dollExpense.name}
+              td #{dollExpense.amount}
+              td #{dollExpense.dateofPurchase}
     else
       p No doll expense details found.
 

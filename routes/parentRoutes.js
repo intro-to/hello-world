@@ -16,6 +16,8 @@ router.get("/registerparent", (req, res) => {
     // res.redirect("/index")
 
 });
+
+
 //feedback
 router.get("/feedback", (req, res) => {
   res.render("feedback")

@@ -34,57 +34,39 @@ function goBack() {
   window.history.back();
 }
 
-// const form = document.getElementById('babiesForm');
+document.getElementById("babiesForm").addEventListener("submit", function (event) {
+  let valid = true;
 
-//     form.addEventListener('submit', function(event) {
-//       event.preventDefault(); // Prevent form submission
-      
-//       // Validate each input field
-//       const nameInput = document.getElementById('name');
-//       const ageInput = document.getElementById('age');
-//       const locationInput = document.getElementById('location');
-//       const dobInput = document.getElementById('dob');
-//       const genderInput = document.getElementById('gender');
+  // Helper function to show/hide error messages
+  function validateField(fieldId, errorId, condition) {
+    const errorElement = document.getElementById(errorId);
+    if (condition) {
+      errorElement.style.display = "inline";
+      valid = false;
+    } else {
+      errorElement.style.display = "none";
+    }
+  }
 
-//       const nameError = document.getElementById('nameError');
-//       const ageError = document.getElementById('ageError');
-//       const locationError = document.getElementById('locationError');
-//       const dobError = document.getElementById('dobError');
-//       const genderError = document.getElementById('genderError');
+  // Validate each field
+  validateField("name", "nameError", !document.getElementById("name").value);
+  validateField("age", "ageError", !document.getElementById("age").value);
+  validateField("location", "locationError", !document.getElementById("location").value);
+  validateField("dob", "dobError", !document.getElementById("dob").value);
+  validateField("gender", "genderError", !document.getElementById("gender").value);
+  validateField("nextOfKin", "nextOfKinError", !document.getElementById("nextOfKin").value);
+  validateField("time", "timeError", !document.getElementById("time").value);
+  validateField("parentName", "parentNameError", !document.getElementById("parentName").value);
+  validateField("fees", "feesError", !document.getElementById("fees").value);
+  validateField("periodofStay", "periodofStayError", !document.getElementById("periodofStay").value);
+  validateField("paymentDate", "paymentDateError", !document.getElementById("paymentDate").value);
+  validateField("babiesNumber", "babiesNumberError", !document.getElementById("babiesNumber").value);
+  validateField("nameofpersontakingcare", "nameofpersontakingcareError", !document.getElementById("nameofpersontakingcare").value);
+  validateField("timeOut", "timeOutError", !document.getElementById("timeOut").value);
+  validateField("status", "statusError", !document.getElementById("status").value);
 
-//       nameError.textContent =  '' fill in the right name;
-//       ageError.textContent = '';
-//       locationError.textContent = '';
-//       dobError.textContent = '';
-//       genderError.textContent = '';
-
-//       if (nameInput.value.length === 0) {
-//         nameError.textContent = 'Please fill in the name.';
-//       } else if (nameInput.value.length < 8 || nameInput.value.length > 120) {
-//         nameError.textContent = 'Name should be between 8 and 120 characters.';
-//       }
-
-//       if (isNaN(ageInput.value) || ageInput.value <= 0) {
-//         ageError.textContent = 'Please provide a valid age.';
-//       }
-
-//       if (locationInput.value.length === 0) {
-//         locationError.textContent = 'Please fill in the location.';
-//       }
-
-//       // Add more validation rules for other fields as needed
-
-//       // Check if any error messages are present
-//       const errorMessages = document.querySelectorAll('.error');
-//       let hasErrors = false;
-//       errorMessages.forEach(error => {
-//         if (error.textContent.length > 0) {
-//           hasErrors = true;
-//         }
-//       });
-
-//       // If there are no errors, submit the form
-//       if (!hasErrors) {
-//         form.submit();
-//       }
-//     });
+  // Prevent form submission if any field is invalid
+  if (!valid) {
+    event.preventDefault();
+  }
+});

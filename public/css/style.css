@@ -50,5 +50,12 @@ body {
     background-color: #d175fc;
   }
 
+  .error {
+    display: none;
+    color: red;
+    font-size: 0.9em;
+    margin-left: 10px;
+  }
+
   
   

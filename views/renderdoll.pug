@@ -9,11 +9,14 @@ html
   body
     .container
          if dolls.length
+         .row.row-cols-1.row-cols-md-3.g-4
             each doll in dolls
-              .item
-                img(src= doll.itemImage , alt='Item Image')
-
-                h2=doll.itemName
-                p Price: #{doll.itemPrice}
-                p Seller: #{doll.seller}
-                p Description: #{doll.description}
+                .col 
+                    .card.card-custom.mx-2.mb-3.img-fluid(style='width: 18rem;')
+                        .item
+                          img(src= "/"+doll.itemImage , alt='Item Image')
+                          .card-body
+                                  h2=doll.itemName
+                                  p Price: #{doll.itemPrice}
+                                  p Seller: #{doll.seller}
+                                  p Description: #{doll.description}

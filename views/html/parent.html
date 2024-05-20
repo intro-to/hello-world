@@ -1,69 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parent Details</title>
-    <link rel="stylesheet" href="parent.css" />
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Details Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border: 2px solid #0e680b85;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: #218838;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        color: #218838;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="tel"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #218838;
+      }
+
+      .error {
+        display: none;
+        color: red;
+        font-size: 0.9em;
+        margin-top: 5px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <form id="parentDetailsForm">
+      <form id="parentDetailsForm" action="/registerparent" method="POST">
         <h2>Parent Details</h2>
-        <input
-          type="text"
-          id="parentName"
-          name="parentName"
-          placeholder="Parent Name"
-          required
-        />
-        <input
-          type="number"
-          id="parentAge"
-          name="parentAge"
-          placeholder="Parent Age"
-          required
-        />
-        <select id="parentSex" name="parentSex" required>
+
+        <label for="parentName">Parent Name</label>
+        <input type="text" id="parentName" name="parentName" placeholder="Parent Name">
+        <span id="parentNameError" class="error">Please provide a valid name.</span>
+
+        <label for="parentAge">Parent Age</label>
+        <input type="number" id="parentAge" name="parentAge" placeholder="Parent Age">
+        <span id="parentAgeError" class="error">Please provide a valid age.</span>
+
+        <label for="parentSex">Parent Sex</label>
+        <select id="parentSex" name="parentSex">
           <option value="">Select Sex</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
-        <input
-          type="text"
-          id="parentLocation"
-          name="parentLocation"
-          placeholder="Location"
-          required
-        />
-        <input
-          type="text"
-          id="parentNIN"
-          name="parentNIN"
-          placeholder="National Identification Number (NIN)"
-          required
-        />
-        <input
-          type="tel"
-          id="parentContact"
-          name="parentContact"
-          placeholder="Contact Number"
-          required
-        />
-        <input
-          type="tel"
-          id="emergencyContact"
-          name="emergencyContact"
-          placeholder="Emergency Contact"
-          required
-        />
-        <input type="submit" value="Submit" />
+        <span id="parentSexError" class="error">Please select a valid sex.</span>
+
+        <label for="parentLocation">Location</label>
+        <input type="text" id="parentLocation" name="parentLocation" placeholder="Location">
+        <span id="parentLocationError" class="error">Please provide a valid location.</span>
+
+        <label for="parentNIN">National Identification Number (NIN)</label>
+        <input type="text" id="parentNIN" name="parentNIN" placeholder="National Identification Number (NIN)">
+        <span id="parentNINError" class="error">Please provide a valid NIN.</span>
+
+        <label for="parentContact">Contact Number</label>
+        <input type="tel" id="parentContact" name="parentContact" placeholder="Contact Number">
+        <span id="parentContactError" class="error">Please provide a valid contact number.</span>
+
+        <label for="emergencyContact">Emergency Contact</label>
+        <input type="tel" id="emergencyContact" name="emergencyContact" placeholder="Emergency Contact">
+        <span id="emergencyContactError" class="error">Please provide a valid emergency contact number.</span>
+
+        <input type="submit" value="Submit">
       </form>
     </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/js/parent.js"></script>  
+    <script>
+      function validateForm() {
+        let valid = true;
+
+        // Validate parent name
+        const parentName = document.getElementById("parentName").value;
+        if (!parentName.trim()) {
+          document.getElementById("parentNameError").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("parentNameError").style.display = "none";
+        }
+
+        // Validate parent age
+        const parentAge = document.getElementById("parentAge").value;
+        if (!parentAge || parentAge <= 0) {
+          document.getElementById("parentAgeError").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("parentAgeError").style.display = "none";
+        }
+
+        // Validate parent sex
+        const parentSex = document.getElementById("parentSex").value;
+        if (!parentSex) {
+          document.getElementById("parentSexError").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("parentSexError").style.display = "none";
+        }
+
+        // Validate parent location
+        const parentLocation = document.getElementById("parentLocation").value;
+        if (!parentLocation.trim()) {
+          document.getElementById("parentLocationError").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("parentLocationError").style.display = "none";
+        }
+
+        // Validate parent NIN
+        const parentNIN = document.getElementById("parentNIN").value;
+        if (!parentNIN.trim()) {
+          document.getElementById("parentNINError").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("parentNINError").style.display = "none";
+        }
+
+        // Validate parent contact
+        const parentContact = document.getElementById("parentContact").value;
+        if (!parentContact.trim() || !/^\d{10}$/.test(parentContact)) {
+          document.getElementById("parentContactError").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("parentContactError").style.display = "none";
+        }
+
+        // Validate emergency contact
+        const emergencyContact = document.getElementById("emergencyContact").value;
+        if (!emergencyContact.trim() || !/^\d{10}$/.test(emergencyContact)) {
+          document.getElementById("emergencyContactError").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("emergencyContactError").style.display = "none";
+        }
+
+        return valid;
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("parentDetailsForm").addEventListener("submit", function(event) {
+          if (!validateForm()) {
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

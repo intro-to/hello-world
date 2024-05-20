@@ -6,9 +6,10 @@ head
   link(rel="stylesheet", href="/css/expe.css")
 .container
   h2 Expense Tracker
+  form#paymentform(action='/payment' method='POST')
   .input-group
     label(for='date of purchase') Date:
-    input#amount(type='date' name="dob")
+    input#amount(type='date' name="dop")
   .input-group
     label(for='amount') Amount:
     input#amount(type='number' name="amount")

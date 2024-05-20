@@ -3,12 +3,12 @@ html
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Time and Payments Table
+    title  Payments Table
     link(rel='stylesheet' href='/css/pay.css')
   body
     .container
-      h2 Time and Payments
-      table#timePaymentsTable
+      h2  Payments
+      table#PaymentsTable
         thead
           tr
             th Date
@@ -16,9 +16,9 @@ html
             th Number of Babies
             th Payment
             th Action
-
         tbody#payment-list
-          if  payment && payments.length 
+          //- - var payments = typeof payments !== 'undefined' ? payments : []
+          if  payments.length 
             each payment in payments
               tr
                 td #{moment(payment.date).format("DD-MM-YYYY")}
@@ -27,5 +27,5 @@ html
                 td #{payment.totalPayment}
                 td
                   form(method="POST" action="/deletepayment")
-                  input(type="hidden" name="id" value=payment._id)
-                  button(type="submit") Delete
+                    input(type="hidden" name="id" value=payment._id)
+                    button(type="submit") Delete

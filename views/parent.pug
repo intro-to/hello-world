@@ -1,24 +1,41 @@
+
+
+
 doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Parent Details
+  title Parent Details Form
   link(rel='stylesheet' href='/css/parent.css')
- 
+
 .container
-  form#parentDetailsForm(action = "/registerparent" method="POST")
+  form#parentDetailsForm(action='/registerparent' method='POST')
     h2 Parent Details
-    input#parentName(type='text' name='parentName' placeholder='Parent Name' )
-    input#parentAge(type='number' name='parentAge' placeholder='Parent Age' )
+    label(for='parentName') Parent Name
+    input#parentName(type='text' name='parentName' placeholder='Parent Name')
+    span#parentNameError.error Please provide a valid name.
+    label(for='parentAge') Parent Age
+    input#parentAge(type='number' name='parentAge' placeholder='Parent Age')
+    span#parentAgeError.error Please provide a valid age.
+    label(for='parentSex') Parent Sex
     select#parentSex(name='parentSex')
       option(value='') Select Sex
       option(value='male') Male
       option(value='female') Female
       option(value='other') Other
-    input#parentLocation(type='text' name='parentLocation' placeholder='Location' )
-    input#parentNIN(type='text' name='parentNIN' placeholder='National Identification Number (NIN)' )
-    input#parentContact(type='tel' name='parentContact' placeholder='Contact Number' )
-    input#emergencyContact(type='tel' name='emergencyContact' placeholder='Emergency Contact' )
+    span#parentSexError.error Please select a valid sex.
+    label(for='parentLocation') Location
+    input#parentLocation(type='text' name='parentLocation' placeholder='Location')
+    span#parentLocationError.error Please provide a valid location.
+    label(for='parentNIN') National Identification Number (NIN)
+    input#parentNIN(type='text' name='parentNIN' placeholder='National Identification Number (NIN)')
+    span#parentNINError.error Please provide a valid NIN.
+    label(for='parentContact') Contact Number
+    input#parentContact(type='tel' name='parentContact' placeholder='Contact Number')
+    span#parentContactError.error Please provide a valid contact number.
+    label(for='emergencyContact') Emergency Contact
+    input#emergencyContact(type='tel' name='emergencyContact' placeholder='Emergency Contact')
+    span#emergencyContactError.error Please provide a valid emergency contact number.
     input(type='submit' value='Submit')
-//- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-//-     <script src="/js/parent.js"></script>  
+    script(src='https://unpkg.com/axios/dist/axios.min.js')
+    script(src='/js/parent.js')

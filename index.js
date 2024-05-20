@@ -105,6 +105,9 @@ app.get("/payment", (req, res) => {
 app.get("/sell-item", (req, res) => {
   res.render("doll");
 });
+app.get("/collection", (req, res) => {
+  res.render("report");
+});
 // app.get("/feedback", (req, res) => {
 //   res.render("feedback");
 // });
