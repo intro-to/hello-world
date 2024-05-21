@@ -1,89 +1,229 @@
-doctype html
-html(lang="en")
+//- html(lang="en")
+//-   head
+//-     meta(charset="UTF-8")
+//-     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+//-     title Daycare Management System
+//-     link(rel="stylesheet" href="/css/style.css")
+//-   body
+//-     h1 Babies Registration Form
+//-     .container
+//-       form#babiesForm(action="/registerbaby" method="POST")
+//-         .form-group
+//-           label(for="name") Babies Name:
+//-           input#name(type="text" placeholder="Babies Name" name="name")
+//-           span.error#nameError Please enter a valid name.
+//-         .form-group
+//-           label(for="age") Babies Age:
+//-           input#age(type="number" placeholder="Babies Age" name="age")
+//-           span.error#ageError Please enter a valid age.
+//-         .form-group
+//-           label(for="location") Babies Location:
+//-           input#location(type="text" placeholder="Babies Location" name="location")
+//-           span.error#locationError Please enter a valid location.
+//-         .form-group
+//-           label(for="dob") Babies Date of Birth:
+//-           input#dob(type="date" placeholder="Babies Date of Birth" name="dob")
+//-           span.error#dobError Please enter a valid date of birth.
+//-         .form-group
+//-           label(for="gender") Babies Gender:
+//-           select#gender(name="gender")
+//-             option(value="") Select Gender
+//-             option(value="male") Male
+//-             option(value="female") Female
+//-           span.error#genderError Please select a gender.
+//-         .form-group
+//-           label(for="nextOfKin") Name of person who brought the baby:
+//-           input#nextOfKin(type="text" placeholder="Name of person who brought the baby" name="nextOfKin")
+//-           span.error#nextOfKinError Please enter a valid name.
+//-         .form-group
+//-           label(for="time") Time of arrival:
+//-           input#time(type="time" placeholder="Time of Arrival" name="timeofArrival")
+//-           span.error#timeError Please enter a valid time.
+//-         .form-group
+//-           label(for="parentName") Parents' names:
+//-           input#parentName(type="text" placeholder="Parents' Name" name="parentName")
+//-           span.error#parentNameError Please enter valid names.
+//-         .form-group
+//-           label(for="fees") Fees in Ugx:
+//-           select#fees(name="fees")
+//-             option(value="") Select Fee
+//-             option(value="10000") 10000
+//-             option(value="15000") 15000
+//-             option(value="others") Others
+//-           span.error#feesError Please select a fee.
+//-         .form-group
+//-           label(for="periodofStay") Period of Stay:
+//-           select#periodofStay(name="periodofStay")
+//-             option(value="") Select Period
+//-             option(value="half day") Half day
+//-             option(value="full day") Full day
+//-             option(value="others") Others
+//-           span.error#periodofStayError Please select a period of stay.
+//-         .form-group
+//-           label(for="paymentDate") Date of Payment:
+//-           input#paymentDate(type="date" placeholder="Date of Payment" name="paymentDate")
+//-           span.error#paymentDateError Please enter a valid date of payment.
+//-         .form-group
+//-           label(for="babiesNumber") Baby's Number:
+//-           input#babiesNumber(type="text" placeholder="Baby's Number" name="babiesNumber")
+//-           span.error#babiesNumberError Please enter a valid number.
+//-         .form-group
+//-           label(for="nameofpersontakingcare") Name of the person taking the baby:
+//-           input#nameofpersontakingcare(type="text" placeholder="Name of the person taking the baby" name="nameofpersontakingcare")
+//-           span.error#nameofpersontakingcareError Please enter a valid name.
+//-         .form-group
+//-           label(for="timeOut") Time out:
+//-           input#timeOut(type="time" placeholder="Time Out" name="timeOut")
+//-           span.error#timeOutError Please enter a valid time.
+//-         .form-group
+//-           label(for="status") Status:
+//-           select#status(name="status")
+//-             option(value="") Select Status
+//-             option(value="clockedin") Clocked In
+//-             option(value="clockedout") Clocked Out
+//-           span.error#statusError Please select a status.
+//-           button(type="submit") Add Baby
+//-           script(src="https://unpkg.com/axios/dist/axios.min.js")
+//-           script(src="/js/scripts.js")
+
+html
   head
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Daycare Management System
-    link(rel="stylesheet" href="/css/style.css")
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Babies Registration Form
+    link(rel='stylesheet' href='/css/style.css')
   body
     h1 Babies Registration Form
     .container
-      form#babiesForm(action="/registerbaby" method="POST")
+      form#babiesForm(action='/registerbaby' method='POST')
         .form-group
-          label(for="name") Babies Name:
-          input#name(type="text" placeholder="Babies Name" name="name")
-          span.error#nameError Please enter a valid name.
+          label(for='name') Babies Name:
+          input#name(type='text' name='name' placeholder='Babies Name')
+          span#errorName.error(style='display: none') Please enter the baby's name.
         .form-group
-          label(for="age") Babies Age:
-          input#age(type="number" placeholder="Babies Age" name="age")
-          span.error#ageError Please enter a valid age.
+          label(for='age') Babies Age:
+          input#age(type='number' name='age' placeholder='Babies Age')
+          span#errorAge.error(style='display: none') Please enter the baby's age.
         .form-group
-          label(for="location") Babies Location:
-          input#location(type="text" placeholder="Babies Location" name="location")
-          span.error#locationError Please enter a valid location.
+          label(for='location') Babies Location:
+          input#location(type='text' name='location' placeholder='Babies Location')
+          span#errorLocation.error(style='display: none') Please enter the baby's location.
         .form-group
-          label(for="dob") Babies Date of Birth:
-          input#dob(type="date" placeholder="Babies Date of Birth" name="dob")
-          span.error#dobError Please enter a valid date of birth.
+          label(for='dob') Babies Date of Birth:
+          input#dob(type='date' name='dob' placeholder='Babies Date of Birth')
+          span#errorDob.error(style='display: none') Please enter the baby's date of birth.
         .form-group
-          label(for="gender") Babies Gender:
-          select#gender(name="gender")
-            option(value="") Select Gender
-            option(value="male") Male
-            option(value="female") Female
-          span.error#genderError Please select a gender.
+          label(for='gender') Babies Gender:
+          select#gender(name='gender')
+            option(value='') Select Gender
+            option(value='male') Male
+            option(value='female') Female
+          span#errorGender.error(style='display: none') Please select the baby's gender.
         .form-group
-          label(for="nextOfKin") Name of person who brought the baby:
-          input#nextOfKin(type="text" placeholder="Name of person who brought the baby" name="nextOfKin")
-          span.error#nextOfKinError Please enter a valid name.
+          label(for='nextOfKin') Name of Person Who Brought the Baby:
+          input#nextOfKin(type='text' name='nextOfKin' placeholder='Name of Person Who Brought the Baby')
+          span#errorNextOfKin.error(style='display: none') Please enter the name of the person who brought the baby.
         .form-group
-          label(for="time") Time of arrival:
-          input#time(type="time" placeholder="Time of Arrival" name="timeofArrival")
-          span.error#timeError Please enter a valid time.
+          label(for='timeofArrival') Time of Arrival:
+          input#timeofArrival(type='time' name='timeofArrival' placeholder='Time of Arrival')
+          span#errorTimeofArrival.error(style='display: none') Please enter the time of arrival.
         .form-group
-          label(for="parentName") Parents' names:
-          input#parentName(type="text" placeholder="Parents' Name" name="parentName")
-          span.error#parentNameError Please enter valid names.
+          label(for='parentName') Parent's Name:
+          input#parentName(type='text' name='parentName' placeholder="Parent's Name")
+          span#errorParentName.error(style='display: none') Please enter the parent's name.
         .form-group
-          label(for="fees") Fees in Ugx:
-          select#fees(name="fees")
-            option(value="") Select Fee
-            option(value="10000") 10000
-            option(value="15000") 15000
-            option(value="others") Others
-          span.error#feesError Please select a fee.
+          label(for='fees') Fees:
+          input#fees(type='number' name='fees' placeholder='Fees')
+          span#errorFees.error(style='display: none') Please enter the fees.
         .form-group
-          label(for="periodofStay") Period of Stay:
-          select#periodofStay(name="periodofStay")
-            option(value="") Select Period
-            option(value="half day") Half day
-            option(value="full day") Full day
-            option(value="others") Others
-          span.error#periodofStayError Please select a period of stay.
+          label(for='periodofStay') Period of Stay:
+          select#periodofStay(name='periodofStay')
+            option(value='') Select Period
+            option(value='half day') Half day
+            option(value='full day') Full day
+            option(value='others') Others
+          span#errorPeriodofStay.error(style='display: none') Please select the period of stay.
         .form-group
-          label(for="paymentDate") Date of Payment:
-          input#paymentDate(type="date" placeholder="Date of Payment" name="paymentDate")
-          span.error#paymentDateError Please enter a valid date of payment.
+          label(for='paymentDate') Date of Payment:
+          input#paymentDate(type='date' name='paymentDate' placeholder='Date of Payment')
+          span#errorPaymentDate.error(style='display: none') Please enter the date of payment.
         .form-group
-          label(for="babiesNumber") Baby's Number:
-          input#babiesNumber(type="text" placeholder="Baby's Number" name="babiesNumber")
-          span.error#babiesNumberError Please enter a valid number.
+          label(for='babiesNumber') Baby's Number:
+          input#babiesNumber(type='text' name='babiesNumber' placeholder="Baby's Number")
+          span#errorBabiesNumber.error(style='display: none') Please enter the baby's number.
         .form-group
-          label(for="nameofpersontakingcare") Name of the person taking the baby:
-          input#nameofpersontakingcare(type="text" placeholder="Name of the person taking the baby" name="nameofpersontakingcare")
-          span.error#nameofpersontakingcareError Please enter a valid name.
+          label(for='nameofpersontakingcare') Name of Person Taking the Baby:
+          input#nameofpersontakingcare(type='text' name='nameofpersontakingcare' placeholder='Name of Person Taking the Baby')
+          span#errorNameofpersontakingcare.error(style='display: none') Please enter the name of the person taking the baby.
         .form-group
-          label(for="timeOut") Time out:
-          input#timeOut(type="time" placeholder="Time Out" name="timeOut")
-          span.error#timeOutError Please enter a valid time.
+          label(for='timeOut') Time Out:
+          input#timeOut(type='time' name='timeOut' placeholder='Time Out')
+          span#errorTimeOut.error(style='display: none') Please enter the time out.
         .form-group
-          label(for="status") Status:
-          select#status(name="status")
-            option(value="") Select Status
-            option(value="clockedin") Clocked In
-            option(value="clockedout") Clocked Out
-          span.error#statusError Please select a status.
-        button(type="submit") Add Baby
+          label(for='status') Status:
+          select#status(name='status')
+            option(value='') Select Status
+            option(value='clockedin') Clocked In
+            option(value='clockedout') Clocked Out
+          span#errorStatus.error(style='display: none') Please select the status.
+        button.btn(type='submit') Add Baby
+    script(src='https://unpkg.com/axios/dist/axios.min.js')
+    script.
+      function validateForm() {
+        let valid = true;
 
-    script(src="https://unpkg.com/axios/dist/axios.min.js")
-    script(src="/js/script.js")
+        // Helper function to show/hide error messages
+        function showError(id, condition) {
+          const errorElement = document.getElementById(id);
+          if (condition) {
+            errorElement.style.display = "block";
+            valid = false;
+          } else {
+            errorElement.style.display = "none";
+          }
+        }
+
+        // Validate baby name
+        showError("errorName", !document.getElementById("name").value.trim());
+        // Validate baby age
+        const age = document.getElementById("age").value;
+        showError("errorAge", !age || age <= 0);
+        // Validate baby location
+        showError("errorLocation", !document.getElementById("location").value.trim());
+        // Validate baby dob
+        showError("errorDob", !document.getElementById("dob").value.trim());
+        // Validate baby gender
+        showError("errorGender", !document.getElementById("gender").value);
+        // Validate person who brought the baby
+        showError("errorNextOfKin", !document.getElementById("nextOfKin").value.trim());
+        // Validate time of arrival
+        showError("errorTimeofArrival", !document.getElementById("timeofArrival").value.trim());
+        // Validate parent name
+        showError("errorParentName", !document.getElementById("parentName").value.trim());
+        // Validate fees
+        showError("errorFees", !document.getElementById("fees").value.trim());
+        // Validate period of stay
+        showError("errorPeriodofStay", !document.getElementById("periodofStay").value);
+        // Validate date of payment
+        showError("errorPaymentDate", !document.getElementById("paymentDate").value.trim());
+        // Validate baby number
+        showError("errorBabiesNumber", !document.getElementById("babiesNumber").value.trim());
+        // Validate name of person taking the baby
+        showError("errorNameofpersontakingcare", !document.getElementById("nameofpersontakingcare").value.trim());
+        // Validate time out
+        showError("errorTimeOut", !document.getElementById("timeOut").value.trim());
+        // Validate status
+        showError("errorStatus", !document.getElementById("status").value);
+
+        return valid;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("babiesForm")
+          .addEventListener("submit", function (event) {
+            if (!validateForm()) {
+              event.preventDefault();
+            }
+          });
+      });

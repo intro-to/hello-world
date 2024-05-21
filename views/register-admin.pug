@@ -1,28 +1,109 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Admin Registration
-  link(rel='stylesheet' type='text/css' href='/css/admin.css')
-.container
-  h2 Admin Registration
-  form#adminRegistrationForm(action="/registeradmin" method="POST")
-    label(for='name') Name:
-    input#name(type='text' name='name' required='')
-    label(for='age') Age:
-    input#age(type='number' name='age' required='')
-    label(for='location') Location:
-    input#location(type='text' name='location' required='')
-    label(for='nin') NIN:
-    input#nin(type='text' name='nin' required='')
-    label(for='email') Email:
-    input#email(type='email' name='email' required='')
-    label(for='password') Password:
-    input#password(type='password' name='password' required='')
-    label(for='phone') Phone Number:
-    input#phone(type='tel' name='phone' required='')
-    label(for='role') Role:
-    select#role(name='role' required='')
-      option(value='admin') Admin
-    button(type='submit' onclick='registerAdmin()') Register
-script(src='/js/admin.js')
+//- doctype html
+//- head
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   title Admin Registration
+//-   link(rel='stylesheet' type='text/css' href='/css/admin.css')
+//- .container
+//-   h2 Admin Registration
+//-   form#adminRegistrationForm(action="/registeradmin" method="POST")
+//-     label(for='name') Name:
+//-     input#name(type='text' name='name' required='')
+//-     label(for='age') Age:
+//-     input#age(type='number' name='age' required='')
+//-     label(for='location') Location:
+//-     input#location(type='text' name='location' required='')
+//-     label(for='nin') NIN:
+//-     input#nin(type='text' name='nin' required='')
+//-     label(for='email') Email:
+//-     input#email(type='email' name='email' required='')
+//-     label(for='password') Password:
+//-     input#password(type='password' name='password' required='')
+//-     label(for='phone') Phone Number:
+//-     input#phone(type='tel' name='phone' required='')
+//-     label(for='role') Role:
+//-     select#role(name='role' required='')
+//-       option(value='admin') Admin
+//-     button(type='submit' onclick='registerAdmin()') Register
+//- script(src='/js/admin.js')
+
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Admin Registration
+    link(rel='stylesheet' type='text/css' href='/css/admin.css')
+  body
+    .container
+      h2 Admin Registration
+      form#adminRegistrationForm(action="/registeradmin" method="POST")
+        .form-group
+          label(for='name') Name:
+          input#name(type='text' name='name' required='')
+          span#nameError.error(style='display:none') Please enter the name.
+        .form-group
+          label(for='age') Age:
+          input#age(type='number' name='age' required='')
+          span#ageError.error(style='display:none') Please enter a valid age.
+        .form-group
+          label(for='location') Location:
+          input#location(type='text' name='location' required='')
+          span#locationError.error(style='display:none') Please enter the location.
+        .form-group
+          label(for='nin') NIN:
+          input#nin(type='text' name='nin' required='')
+          span#ninError.error(style='display:none') Please enter the NIN.
+        .form-group
+          label(for='email') Email:
+          input#email(type='email' name='email' required='' style='width: 100%;')
+          span#emailError.error(style='display:none') Please enter a valid email.
+        .form-group
+          label(for='password') Password:
+          input#password(type='password' name='password' required='')
+          spanr#passwordError.error(style='display:none ') Please enter the password.
+        .form-group
+          label(for='phone') Phone Number:
+          input#phone(type='tel' name='phone' required='')
+          span#phoneError.error(style='display:none') Please enter the phone number.
+        .form-group
+          label(for='role') Role:
+          select#role(name='role' required='')
+            option(value='admin') Admin
+          span#roleError.error(style='display:none ') Please select a role.
+        button(type='submit') Register
+    script.
+      function validateForm() {
+        let valid = true;
+
+        function showError(id, condition) {
+          const errorElement = document.getElementById(id);
+          if (condition) {
+            errorElement.style.display = "block";
+            valid = false;
+          } else {
+            errorElement.style.display = "none";
+          }
+        }
+
+        showError("nameError", !document.getElementById("name").value.trim());
+        const age = document.getElementById("age").value;
+        showError("ageError", !age || age <= 0);
+        showError("locationError", !document.getElementById("location").value.trim());
+        showError("ninError", !document.getElementById("nin").value.trim());
+        showError("emailError", !document.getElementById("email").value.trim());
+        showError("passwordError", !document.getElementById("password").value.trim());
+        showError("phoneError", !document.getElementById("phone").value.trim());
+        showError("roleError", !document.getElementById("role").value);
+
+        return valid;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("adminRegistrationForm")
+          .addEventListener("submit", function (event) {
+            if (!validateForm()) {
+              event.preventDefault();
+            }
+          });
+      });

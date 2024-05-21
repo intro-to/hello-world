@@ -54,9 +54,9 @@ router.get("/procure", (req, res) => {
 router.get("/purchase", (req, res) => {
     res.render("purchase")
 });
-router.get("/expence", (req, res) => {
-    res.render("expence")
-});
+// router.get("/expence", (req, res) => {
+//     res.render("expence")
+// });
 router.get("/paymentmanagement", (req, res) => {
     res.render("paymentmanagement")
 });

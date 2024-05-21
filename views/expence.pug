@@ -1,80 +1,227 @@
+//- //- doctype html
+//- //- head
+//- //-   meta(charset='UTF-8')
+//- //-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//- //-   title Expense Tracker
+//- //-   link(rel="stylesheet", href="/css/expe.css")
+//- //- .container
+//- //-   h2 Expense Tracker
+//- //-   form#paymentform(action='/expence' method='POST')
+//- //-   .input-group
+//- //-     label(for='date of purchase') Date:
+//- //-     input#amount(type='date' name="dop")
+//- //-   .input-group
+//- //-     label(for='amount') Amount:
+//- //-     input#amount(type='number' name="amount")
+//- //-   .input-group
+//- //-     label(for='description') Description:
+//- //-     input#description(type='text' name="description")
+//- //-   .input-group
+//- //-     label(for='category') Category:
+//- //-     select#category(name="category")
+//- //-       option(value='Food') Food
+//- //-       option(value='Fruits') Fruits
+//- //-       option(value='Milk') Milk
+//- //-       option(value='Bread') Bread
+//- //-       option(value='Others') Others
+//- //-     button.btn(type= 'submit') Add Expense
+//-   //- #expenseList.expense-list
+//-   //- #totalExpenses.total-expenses
+//- //- script.
+//- //-   document.addEventListener("DOMContentLoaded", () => {
+//- //-   loadExpenses();
+//- //-   calculateTotalExpenses();
+//- //-   });
+//- //-   function addExpense() {
+//- //-   const amountInput = document.getElementById("amount");
+//- //-   const descriptionInput = document.getElementById("description");
+//- //-   const categoryInput = document.getElementById("category");
+//- //-   const amount = parseFloat(amountInput.value);
+//- //-   const description = descriptionInput.value.trim();
+//- //-   const category = categoryInput.value;
+//- //-   if (!isNaN(amount) && description !== "") {
+//- //-   const expense = {
+//- //-   id: Date.now(),
+//- //-   amount,
+//- //-   description,
+//- //-   category,
+//- //-   };
+//- //-   let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+//- //-   expenses.push(expense);
+//- //-   localStorage.setItem("expenses", JSON.stringify(expenses));
+//- //-   loadExpenses();
+//- //-   calculateTotalExpenses();
+//- //-   amountInput.value = "";
+//- //-   descriptionInput.value = "";
+//- //-   categoryInput.value = "Food";
+//- //-   }
+//- //-   }
+//- //-   function loadExpenses() {
+//- //-   const expenseList = document.getElementById("expenseList");
+//- //-   expenseList.innerHTML = "";
+//- //-   const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+//- //-   expenses.forEach((expense) => {
+//- //-   const item = document.createElement("div");
+//- //-   item.classList.add("expense-item");
+//- //-   item.innerHTML = `<span>${expense.category}</span><span>${expense.description}</span><span>$${expense.amount}</span>`;
+//- //-   expenseList.appendChild(item);
+//- //-   });
+//- //-   }
+//- //-   function calculateTotalExpenses() {
+//- //-   const totalExpensesElem = document.getElementById("totalExpenses");
+//- //-   const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+//- //-   const totalExpenses = expenses.reduce(
+//- //-   (acc, expense) => acc + expense.amount,
+//- //-   0
+//- //-   );
+//- //-   totalExpensesElem.textContent = `Total Expenses: $${totalExpenses.toFixed(
+//- //-   2
+//- //-   )}`;
+//- //-   }
+
+//- doctype html
+//- html
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-     title Expense Tracker
+//-     link(rel='stylesheet', href='/css/expe.css')
+//-   body
+//-     .container
+//-       h2 Expense Tracker
+//-       form#paymentform(action='/expence' method='POST')
+//-         .input-group
+//-           label(for='dop') Date:
+//-           input#dop(type='date' name='dop')
+//-         .input-group
+//-           label(for='amount') Amount:
+//-           input#amount(type='number' name='amount')
+//-         .input-group
+//-           label(for='description') Description:
+//-           input#description(type='text' name='description')
+//-         .input-group
+//-           label(for='category') Category:
+//-           select#category(name='category')
+//-             option(value='Food') Food
+//-             option(value='Fruits') Fruits
+//-             option(value='Milk') Milk
+//-             option(value='Bread') Bread
+//-             option(value='Others') Others
+//-         button.btn(type='submit') Add Expense
+//-     script(src='https://unpkg.com/axios/dist/axios.min.js')
+//-     script.
+//-       document.getElementById("paymentform").addEventListener("submit", function(event) {
+//-         const dop = document.getElementById("dop").value;
+//-         const amount = document.getElementById("amount").value;
+//-         const description = document.getElementById("description").value;
+//-         const category = document.getElementById("category").value;
+
+//-         if (!dop || !amount || !description || !category) {
+//-           alert("All fields are required");
+//-           event.preventDefault(); // Prevent form submission if validation fails
+//-         }
+//-       });
+
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Expense Tracker
-  link(rel="stylesheet", href="/css/expe.css")
-.container
-  h2 Expense Tracker
-  form#paymentform(action='/payment' method='POST')
-  .input-group
-    label(for='date of purchase') Date:
-    input#amount(type='date' name="dop")
-  .input-group
-    label(for='amount') Amount:
-    input#amount(type='number' name="amount")
-  .input-group
-    label(for='description') Description:
-    input#description(type='text' name="description")
-  .input-group
-    label(for='category') Category:
-    select#category
-      option(value='Food') Food
-      option(value='Fruits') Fruits
-      option(value='Milk') Milk
-      option(value='Bread') Bread
-      option(value='Others') Others
-  button.btn(onclick='addExpense()') Add Expense
-  #expenseList.expense-list
-  #totalExpenses.total-expenses
-script.
-  document.addEventListener("DOMContentLoaded", () => {
-  loadExpenses();
-  calculateTotalExpenses();
-  });
-  function addExpense() {
-  const amountInput = document.getElementById("amount");
-  const descriptionInput = document.getElementById("description");
-  const categoryInput = document.getElementById("category");
-  const amount = parseFloat(amountInput.value);
-  const description = descriptionInput.value.trim();
-  const category = categoryInput.value;
-  if (!isNaN(amount) && description !== "") {
-  const expense = {
-  id: Date.now(),
-  amount,
-  description,
-  category,
-  };
-  let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-  expenses.push(expense);
-  localStorage.setItem("expenses", JSON.stringify(expenses));
-  loadExpenses();
-  calculateTotalExpenses();
-  amountInput.value = "";
-  descriptionInput.value = "";
-  categoryInput.value = "Food";
-  }
-  }
-  function loadExpenses() {
-  const expenseList = document.getElementById("expenseList");
-  expenseList.innerHTML = "";
-  const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-  expenses.forEach((expense) => {
-  const item = document.createElement("div");
-  item.classList.add("expense-item");
-  item.innerHTML = `<span>${expense.category}</span><span>${expense.description}</span><span>$${expense.amount}</span>`;
-  expenseList.appendChild(item);
-  });
-  }
-  function calculateTotalExpenses() {
-  const totalExpensesElem = document.getElementById("totalExpenses");
-  const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-  const totalExpenses = expenses.reduce(
-  (acc, expense) => acc + expense.amount,
-  0
-  );
-  totalExpensesElem.textContent = `Total Expenses: $${totalExpenses.toFixed(
-  2
-  )}`;
-  }
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Expense Tracker
+    link(rel='stylesheet', href='/css/expe.css')
+  body
+    .container
+      h2 Expense Tracker
+      form#paymentform(action='/expence' method='POST')
+        .input-group
+          label(for='dop') Date:
+          input#dop(type='date' name='dop')
+          span#errorDop.error(style='display: none') Please enter a date.
+        .input-group
+          label(for='amount') Amount:
+          input#amount(type='number' name='amount')
+          span#errorAmount.error(style='display: none') Please enter an amount.
+        .input-group
+          label(for='description') Description:
+          input#description(type='text' name='description')
+          span#errorDescription.error(style='display: none') Please enter a description.
+        .input-group
+          label(for='category') Category:
+          select#category(name='category')
+            option(value='') Select Category
+            option(value='Food') Food
+            option(value='Fruits') Fruits
+            option(value='Milk') Milk
+            option(value='Bread') Bread
+            option(value='Others') Others
+          span#errorCategory.error(style='display: none') Please select a category.
+        button.btn(type='submit') Add Expense
+    script(src='https://unpkg.com/axios/dist/axios.min.js')
+    script.
+      function validateForm() {
+        let valid = true;
+
+        // Validate date of purchase
+        const dop = document.getElementById("dop").value;
+        if (!dop.trim()) {
+          document.getElementById("errorDop").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errorDop").style.display = "none";
+        }
+
+        // Validate amount
+        const amount = document.getElementById("amount").value;
+        if (!amount.trim()) {
+          document.getElementById("errorAmount").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errorAmount").style.display = "none";
+        }
+
+        // Validate description
+        const description = document.getElementById("description").value;
+        if (!description.trim()) {
+          document.getElementById("errorDescription").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errorDescription").style.display = "none";
+        }
+
+        // Validate category
+        const category = document.getElementById("category").value;
+        if (!category.trim()) {
+          document.getElementById("errorCategory").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errorCategory").style.display = "none";
+        }
+
+        // Validate time
+        const time = document.getElementById("time").value;
+        if (!time.trim()) {
+          document.getElementById("errorTime").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errorTime").style.display = "none";
+        }
+
+        // Validate fees
+        const fees = document.getElementById("fees").value;
+        if (!fees.trim()) {
+          document.getElementById("errorFees").style.display = "block";
+          valid = false;
+        } else {
+          document.getElementById("errorFees").style.display = "none";
+        }
+
+        return valid;
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("paymentform").addEventListener("submit", function(event) {
+          if (!validateForm()) {
+            event.preventDefault();
+          }
+        });
+      });

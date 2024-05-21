@@ -1,15 +1,21 @@
-router.get("/collection", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+const express = require("express");
+const router = express.Router();
+ 
+const registration = require("../models/registration");
+
+router.get("/collection", async (req, res) => {
+    res.render("report")
     try {
     let selectedDate = moment().format("YYYY-MM-DD");
     if (req.query.searchdate)
     selectedDate = moment(req.query.searchdate).format("YYYY-MM-DD"); 
     
     // set the selected date to match the payment date
-    let collectionDetails = await BabyModel.find({
+    let collectionDetails = await registration.find({
     dateofPayment: selectedDate,
     });
     // query for total revenue on a day
-    let totalFeesCollection = await BabyModel.aggregate([
+    let totalFeesCollection = await registration.aggregate([
     { $match: { dateofPayment: new Date(selectedDate) } },
     {
     $group: { _id: "$dateofPayment", totalCollection: { $sum: "$fee" } },
@@ -18,11 +24,11 @@ router.get("/collection", connectEnsureLogin.ensureLoggedIn(), async (req, res) 
     totalFeesCollection.length > 0 ? totalFeesCollection : 0;
     
     // set the selected date to match the purchase date
-    let expenseDetails = await Purchase.find({
+    let expenseDetails = await  registration.find({
     dateofPurchase: selectedDate,
     });
     // query for total expenses in a day
-    let totalExpenses = await Purchase.aggregate([
+    let totalExpenses = await registration.aggregate([
     { $match: { dateofPurchase: new Date(selectedDate) } },
     {
     $group: {
@@ -34,11 +40,11 @@ router.get("/collection", connectEnsureLogin.ensureLoggedIn(), async (req, res) 
     totalExpenses.length > 0 ? totalExpenses : 0;
     
     // set the selected date to match the purchase date
-    let dollExpenseDetails = await DollModel.find({
+    let dollExpenseDetails = await registration.find({
     dateofPurchase: selectedDate,
     });
     // query for total expenses in a day on dolls
-    let dollTotalExpenses = await DollModel.aggregate([
+    let dollTotalExpenses = await registration.aggregate([
     { $match: { dateofPurchase: new Date(selectedDate) } },
     {
     $group: {
@@ -65,3 +71,5 @@ router.get("/collection", connectEnsureLogin.ensureLoggedIn(), async (req, res) 
     }
     }
     );
+
+    module.exports = router ;

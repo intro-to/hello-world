@@ -23,8 +23,10 @@ const sitterRoutes = require("./routes/sitterRoutes");
 const parentRoutes = require("./routes/parentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const authenticationRoutes = require("./routes/authenticationRoutes");
-const paymentRoutes = require("./routes/paymentRoutes")
-const dollRoutes= require("./routes/dollRoutes")
+const paymentRoutes = require("./routes/paymentRoutes");
+const dollRoutes= require("./routes/dollRoutes");
+const expenceRoutes= require("./routes/expenceRoutes");
+const reportRoutes= require("./routes/reportRoutes");
 // const feedbackRoutes= require("./routes/feedbackRoutes")
 //instantiations
 const app = express();
@@ -108,9 +110,12 @@ app.get("/sell-item", (req, res) => {
 app.get("/collection", (req, res) => {
   res.render("report");
 });
-// app.get("/feedback", (req, res) => {
-//   res.render("feedback");
-// });
+app.get("/expence", (req, res) => {
+  res.render("expence");
+});
+app.get("/collection", (req, res) => {
+  res.render("report");
+});
 
 //use imported routes
 app.use("/", registrationRoutes);
@@ -120,25 +125,10 @@ app.use("/", adminRoutes);
 app.use("/",authenticationRoutes );
 app.use("/", paymentRoutes);
 app.use("/", dollRoutes);
+app.use("/", expenceRoutes);
+
 // app.use("/", feedbackRoutes);
 // app.use("/",daycareRoutes );
-
-
-
-// app.get("/index", (req, res) => {
-//   res.sendFile(__dirname + "/index.html");
-// });
-
-app.get("/registerbaby", (req, res) => {
-  res.sendFile(__dirname + "/register_baby.html");
-});
-
-app.post("/registerbaby", (req, res) => {
-  console.log(req.body);
-  let baby = req.body;
-  // res.redirect("/index")
-  res.json({ message: "baby registered", baby });
-});
 
 // For invalid routes
 app.get("*", (req, res) => {

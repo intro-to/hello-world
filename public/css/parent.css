@@ -50,7 +50,7 @@ input[type="submit"]:hover {
 
 .error {
   display: none;
-  color: rgb(252, 246, 246);
+  color: #7805ade3;
   font-size: 0.9em;
-  margin-top: 5px;
+  margin-left: 8px;
 } 

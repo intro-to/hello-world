@@ -1,56 +1,170 @@
-doctype html
-// index.html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Daycare Management System
-  link(rel='stylesheet' href='/css/style.css')
-h1 Sitters Registration Form
-.container
-  form#sitterForm(action = "/registersitter" method="POST")
-    .form-group
-      label(for='name') Sitter Name:
-      input#name(type='text' placeholder='Sitter Name' name='name')
-    .form-group
-      label(for='age') Sitter Age:
-      input#age(type='number' placeholder='Sitter Age' name='age')
-    .form-group
-      label(for='location') Sitter Location:
-      input#location(type='text' placeholder='Sitter Location' name='location')
-    .form-group
-      label(for='dob') Sitter Date of Birth:
-      input#dob(type='date' placeholder='Sitter Date of Birth' name='dob')
-    .form-group
-      label(for='gender') Sitter Gender:
-      select#gender(name='gender')
-        option(value='male') Male
-        option(value='female') Female
-    .form-group
-      label(for='nextOfKin') Sitter Next of Kin:
-      input#nextOfKin(type='text' placeholder='Sitter Next of Kin' name='nextOfkin')
-    .form-group
-      label(for='nin') Sitter NIN:
-      input#nin(type='text' placeholder='Sitter NIN' name='NIN')
-    .form-group
-      label(for='recommendersName') Sitter Recommender&apos;s Name:
-      input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='recommendersName')
-    .form-group
-      label(for='religion') Sitter Religion:
-      input#religion(type='text' placeholder='Sitter Religion' name='religion')
-    .form-group
-      label(for='educationLevel') Sitter Level of Education:
-      input#educationLevel(type='text' placeholder='Sitter Level of Education' name='educationLevel')
-    .form-group
-      label(for='sitterNumber') Sitter Number:
-      input#sitterNumber(type='text' placeholder='Sitter Number' name='sitterNumber')
-    .form-group
-      label(for='contacts') Sitter Contacts:
-      input#contacts(type='text' placeholder='Sitter Contacts' name='contacts')
-      label(for='status') Status:
-    select(id='status', name='status')
-      option(value='clockedin') Clocked In
-      option(value='clockedout') Clocked 
-    button(type='submit') Add Sitter
-#sitterList
-script(src='https://unpkg.com/axios/dist/axios.min.js')
-script(src='/js/script.js')
+//- doctype html
+//- // index.html
+//- head
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   title Daycare Management System
+//-   link(rel='stylesheet' href='/css/style.css')
+//- h1 Sitters Registration Form
+//- .container
+//-   form#sitterForm(action = "/registersitter" method="POST")
+//-     .form-group
+//-       label(for='name') Sitter Name:
+//-       input#name(type='text' placeholder='Sitter Name' name='name')
+//-     .form-group
+//-       label(for='age') Sitter Age:
+//-       input#age(type='number' placeholder='Sitter Age' name='age')
+//-     .form-group
+//-       label(for='location') Sitter Location:
+//-       input#location(type='text' placeholder='Sitter Location' name='location')
+//-     .form-group
+//-       label(for='dob') Sitter Date of Birth:
+//-       input#dob(type='date' placeholder='Sitter Date of Birth' name='dob')
+//-     .form-group
+//-       label(for='gender') Sitter Gender:
+//-       select#gender(name='gender')
+//-         option(value='male') Male
+//-         option(value='female') Female
+//-     .form-group
+//-       label(for='nextOfKin') Sitter Next of Kin:
+//-       input#nextOfKin(type='text' placeholder='Sitter Next of Kin' name='nextOfkin')
+//-     .form-group
+//-       label(for='nin') Sitter NIN:
+//-       input#nin(type='text' placeholder='Sitter NIN' name='NIN')
+//-     .form-group
+//-       label(for='recommendersName') Sitter Recommender&apos;s Name:
+//-       input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='recommendersName')
+//-     .form-group
+//-       label(for='religion') Sitter Religion:
+//-       input#religion(type='text' placeholder='Sitter Religion' name='religion')
+//-     .form-group
+//-       label(for='educationLevel') Sitter Level of Education:
+//-       input#educationLevel(type='text' placeholder='Sitter Level of Education' name='educationLevel')
+//-     .form-group
+//-       label(for='sitterNumber') Sitter Number:
+//-       input#sitterNumber(type='text' placeholder='Sitter Number' name='sitterNumber')
+//-     .form-group
+//-       label(for='contacts') Sitter Contacts:
+//-       input#contacts(type='text' placeholder='Sitter Contacts' name='contacts')
+//-       label(for='status') Status:
+//-     select(id='status', name='status')
+//-       option(value='clockedin') Clocked In
+//-       option(value='clockedout') Clocked 
+//-     button(type='submit') Add Sitter
+//- #sitterList
+//- script(src='https://unpkg.com/axios/dist/axios.min.js')
+//- script(src='/js/script.js')
+
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Daycare Management System
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    h1 Sitters Registration Form
+    .container
+      form#sitterForm(action='/registersitter' method='POST')
+        .form-group
+          label(for='name') Sitter Name:
+          input#name(type='text' placeholder='Sitter Name' name='name')
+          span#nameError.error(style='display:none;') Please enter the sitter's name.
+        .form-group
+          label(for='age') Sitter Age:
+          input#age(type='number' placeholder='Sitter Age' name='age')
+          span#ageError.error(style='display:none;') Please enter a valid age.
+        .form-group
+          label(for='location') Sitter Location:
+          input#location(type='text' placeholder='Sitter Location' name='location')
+          span#locationError.error(style='display:none;') Please enter the location.
+        .form-group
+          label(for='dob') Sitter Date of Birth:
+          input#dob(type='date' placeholder='Sitter Date of Birth' name='dob')
+          span#dobError.error(style='display:none;') Please enter the date of birth.
+        .form-group
+          label(for='gender') Sitter Gender:
+          select#gender(name='gender')
+            option(value='') Select Gender
+            option(value='male') Male
+            option(value='female') Female
+          span#genderError.error(style='display:none;') Please select the gender.
+        .form-group
+          label(for='nextOfKin') Sitter Next of Kin:
+          input#nextOfKin(type='text' placeholder='Sitter Next of Kin' name='nextOfkin')
+          spanr#nextOfKinError.error(style='display:none;') Please enter the next of kin.
+        .form-group
+          label(for='nin') Sitter NIN:
+          input#nin(type='text' placeholder='Sitter NIN' name='NIN')
+          span#ninError.error(style='display:none;') Please enter the NIN.
+        .form-group
+          label(for='recommendersName') Sitter Recommender's Name:
+          input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='recommendersName')
+          span#recommendersNameError.error(style='display:none;') Please enter the recommender's name.
+        .form-group
+          label(for='religion') Sitter Religion:
+          input#religion(type='text' placeholder='Sitter Religion' name='religion')
+          span#religionError.error(style='display:none;') Please enter the religion.
+        .form-group
+          label(for='educationLevel') Sitter Level of Education:
+          input#educationLevel(type='text' placeholder='Sitter Level of Education' name='educationLevel')
+          span#educationLevelError.error(style='display:none;') Please enter the education level.
+        .form-group
+          label(for='sitterNumber') Sitter Number:
+          input#sitterNumber(type='text' placeholder='Sitter Number' name='sitterNumber')
+          span#sitterNumberError.error(style='display:none;') Please enter the sitter number.
+        .form-group
+          label(for='contacts') Sitter Contacts:
+          input#contacts(type='text' placeholder='Sitter Contacts' name='contacts')
+          span#contactsError.error(style='display:none;') Please enter the contacts.
+        .form-group
+          label(for='status') Status:
+          select#status(name='status')
+            option(value='') Select Status
+            option(value='clockedin') Clocked In
+            option(value='clockedout') Clocked Out
+          span#statusError.error(style='display:none;') Please select the status.
+        button(type='submit') Add Sitter
+      #sitterList
+    script(src='https://unpkg.com/axios/dist/axios.min.js')
+    script(src='/js/script.js')
+    script.
+      function validateForm() {
+        let valid = true;
+
+        function showError(id, condition) {
+          const errorElement = document.getElementById(id);
+          if (condition) {
+            errorElement.style.display = "block";
+            valid = false;
+          } else {
+            errorElement.style.display = "none";
+          }
+        }
+
+        showError("nameError", !document.getElementById("name").value.trim());
+        const age = document.getElementById("age").value;
+        showError("ageError", !age || age <= 0);
+        showError("locationError", !document.getElementById("location").value.trim());
+        showError("dobError", !document.getElementById("dob").value.trim());
+        showError("genderError", !document.getElementById("gender").value);
+        showError("nextOfKinError", !document.getElementById("nextOfKin").value.trim());
+        showError("ninError", !document.getElementById("nin").value.trim());
+        showError("recommendersNameError", !document.getElementById("recommendersName").value.trim());
+        showError("religionError", !document.getElementById("religion").value.trim());
+        showError("educationLevelError", !document.getElementById("educationLevel").value.trim());
+        showError("sitterNumberError", !document.getElementById("sitterNumber").value.trim());
+        showError("contactsError", !document.getElementById("contacts").value.trim());
+        showError("statusError", !document.getElementById("status").value);
+
+        return valid;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("sitterForm")
+          .addEventListener("submit", function (event) {
+            if (!validateForm()) {
+              event.preventDefault();
+            }
+          });
+      });
