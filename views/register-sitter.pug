@@ -55,6 +55,7 @@
 //- script(src='https://unpkg.com/axios/dist/axios.min.js')
 //- script(src='/js/script.js')
 
+
 html
   head
     meta(charset='UTF-8')
@@ -68,65 +69,64 @@ html
         .form-group
           label(for='name') Sitter Name:
           input#name(type='text' placeholder='Sitter Name' name='name')
-          span#nameError.error(style='display:none;') Please enter the sitter's name.
+          spanr#nameError(style='display:none; color:red;') Please enter the sitter's name.
         .form-group
           label(for='age') Sitter Age:
           input#age(type='number' placeholder='Sitter Age' name='age')
-          span#ageError.error(style='display:none;') Please enter a valid age.
+          spanr#ageError(style='display:none; color:red;') Please enter a valid age.
         .form-group
           label(for='location') Sitter Location:
           input#location(type='text' placeholder='Sitter Location' name='location')
-          span#locationError.error(style='display:none;') Please enter the location.
+          spanr#locationError(style='display:none; color:red;') Please enter the location.
         .form-group
           label(for='dob') Sitter Date of Birth:
           input#dob(type='date' placeholder='Sitter Date of Birth' name='dob')
-          span#dobError.error(style='display:none;') Please enter the date of birth.
+          span#dobError(style='display:none; color:red;') Please enter the date of birth.
         .form-group
           label(for='gender') Sitter Gender:
           select#gender(name='gender')
             option(value='') Select Gender
             option(value='male') Male
             option(value='female') Female
-          span#genderError.error(style='display:none;') Please select the gender.
+          span#genderError(style='display:none; color:red;') Please select the gender.
         .form-group
           label(for='nextOfKin') Sitter Next of Kin:
-          input#nextOfKin(type='text' placeholder='Sitter Next of Kin' name='nextOfkin')
-          spanr#nextOfKinError.error(style='display:none;') Please enter the next of kin.
+          input#nextOfKin(type='text' placeholder='Sitter Next of Kin' name='nextOfKin')
+          span#nextOfKinError(style='display:none; color:red;') Please enter the next of kin.
         .form-group
           label(for='nin') Sitter NIN:
-          input#nin(type='text' placeholder='Sitter NIN' name='NIN')
-          span#ninError.error(style='display:none;') Please enter the NIN.
+          input#nin(type='text' placeholder='Sitter NIN' name='nin')
+          spanr#ninError(style='display:none; color:red;') Please enter the NIN.
         .form-group
           label(for='recommendersName') Sitter Recommender's Name:
           input#recommendersName(type='text' placeholder="Sitter Recommender's Name" name='recommendersName')
-          span#recommendersNameError.error(style='display:none;') Please enter the recommender's name.
+          spanr#recommendersNameError(style='display:none; color:red;') Please enter the recommender's name.
         .form-group
           label(for='religion') Sitter Religion:
           input#religion(type='text' placeholder='Sitter Religion' name='religion')
-          span#religionError.error(style='display:none;') Please enter the religion.
+          span#religionError(style='display:none; color:red;') Please enter the religion.
         .form-group
           label(for='educationLevel') Sitter Level of Education:
           input#educationLevel(type='text' placeholder='Sitter Level of Education' name='educationLevel')
-          span#educationLevelError.error(style='display:none;') Please enter the education level.
+          span#educationLevelError(style='display:none; color:red;') Please enter the education level.
         .form-group
           label(for='sitterNumber') Sitter Number:
           input#sitterNumber(type='text' placeholder='Sitter Number' name='sitterNumber')
-          span#sitterNumberError.error(style='display:none;') Please enter the sitter number.
+          span#sitterNumberError(style='display:none; color:red;') Please enter the sitter number.
         .form-group
           label(for='contacts') Sitter Contacts:
           input#contacts(type='text' placeholder='Sitter Contacts' name='contacts')
-          span#contactsError.error(style='display:none;') Please enter the contacts.
+          span#contactsError(style='display:none; color:red;') Please enter the contacts.
         .form-group
           label(for='status') Status:
           select#status(name='status')
             option(value='') Select Status
             option(value='clockedin') Clocked In
             option(value='clockedout') Clocked Out
-          span#statusError.error(style='display:none;') Please select the status.
+          spanr#statusError(style='display:none; color:red;') Please select the status.
         button(type='submit') Add Sitter
       #sitterList
     script(src='https://unpkg.com/axios/dist/axios.min.js')
-    script(src='/js/script.js')
     script.
       function validateForm() {
         let valid = true;

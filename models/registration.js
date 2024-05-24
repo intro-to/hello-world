@@ -9,7 +9,7 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   } , 
-  Location:{
+  location:{
     type:String,
     trim:true
   }, 
@@ -49,7 +49,7 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   }, 
-  TimeOut:{
+  timeOut:{
     type:String,
     trim:true
   },

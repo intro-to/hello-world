@@ -21,11 +21,11 @@ const registrationSchema = new mongoose.Schema( {
     type:String,
     trim:true
   },   
-  nextOfkin:{
+  nextOfKin:{
     type:String,
     trim:true
   },
-  NIN:{
+  nin:{
     type:String,
     trim:true
   },  
